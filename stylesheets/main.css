@@ -1,0 +1,339 @@
+p, div{
+    font-size: 13pt;
+}
+
+.container{
+    padding: 20px;
+    background-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+h1{
+    margin-bottom: 20px;
+}
+
+.newsHeadline{
+    margin-bottom: 5px;
+}
+
+.calculator{
+    width: 40%;
+    border-radius: 10px;
+}
+
+.timer{
+    width: 60%;
+    border-radius: 10px;
+}
+
+#guessNumber{
+    width: 50%;
+    border-radius: 10px;
+}
+
+.sliderDisabled{
+    opacity: 0;
+    position: absolute;
+    pointer-events: none;
+}
+
+.sliderEnabled{
+    opacity: 1;
+    position: initial;
+    pointer-events: all;
+    transition: opacity 1500ms ease-in-out;
+}
+
+.sliderControl{
+    cursor: pointer;
+    user-select: none;
+    border-radius: 10px;
+    vertical-align: middle;
+    width: 35px;
+}
+
+.sliderControl:hover{
+    background-color: rgb(100, 100, 100);
+}
+
+#sliderContent{
+    margin-left: 65px;
+    min-height: 40vh;
+}
+
+#slider{
+    min-height: 30px;
+    background-color: rgba(60, 60, 60, 0.3);
+    padding-top: 10px;
+    padding-bottom: 10px;
+    border-radius: 10px;
+}
+
+#projectClick{
+    text-align: center;
+    margin-bottom: 30px;
+    user-select: none;
+}
+
+#projectClick span{
+    font-size: 20px;
+    margin-left: 10px;
+    color: rgba(255, 255, 255, 0.3);
+    user-select: none;
+    cursor: pointer;
+}
+
+#projectClick span:hover{
+    color: rgba(255, 255, 255, 0.7);
+}
+
+.activeProject{
+    color: white !important;
+}
+
+#sliderContent h3{
+    font-size: 20pt;
+    text-align: center;
+}
+
+#sliderContent p{
+    text-align: center;
+    font-size: 15pt;
+}
+
+
+.linkButtons{
+    margin-top: 10px;
+    font-size: inherit;
+    width: 250px;
+    height: 50px;
+    color: inherit;
+    background-color: rgb(20, 20, 20);
+    user-select: none;
+    cursor: pointer;
+    border-radius: 30px;
+    margin-left: 30%;
+    border: 1px solid rgb(100, 100, 100);
+}
+
+.linkButtons:hover{
+    background-color: rgb(30, 30, 30);
+}
+
+.linkButtons:active{
+    background-color: rgb(10, 10, 10);
+    width: 255px;
+}
+
+.headlineIcon{
+    vertical-align: middle;
+    width: 40px;
+}
+
+#warning{
+    color: red;
+}
+
+#contactForm{
+    margin-bottom: 30px;
+}
+
+input{
+    margin-bottom: 15px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: inherit;
+    color: inherit;
+    background-color: rgb(40, 40, 40);
+    min-width: 50%;
+    height: 40px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+input:focus, textarea:focus{
+    outline: none;
+    background-color: rgb(60, 60, 60);
+}
+
+input:hover, textarea:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+textarea{
+    color: inherit;
+    background-color: rgb(40, 40, 40);
+    min-width: 50%;
+    max-width: 100%;
+    min-height: 100px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 8px 12px;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#submit, .accept{
+    font-size: inherit;
+    width: 200px;
+    height: 50px;
+    color: inherit;
+    background-color: rgb(20, 20, 20);
+    user-select: none;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-bottom: 30px;
+}
+
+#submit:hover, .accept:hover{
+    background-color: rgb(40, 40, 40);
+    width: 210px;
+    transition: 0.4s;
+}
+
+#submit:focus, .accept:focus{
+    outline: none;
+    background-color: rgb(60, 60, 60);
+}
+
+.subInfo{
+    margin-bottom: 30px;
+}
+
+#contactPossibilities{
+    margin-bottom: 30px;
+    background-color: rgb(40, 40, 40);
+    border-radius: 10px;
+    width: 100%;
+}
+
+#contactPossibilities td{
+    padding: 5px;
+}
+
+.normalContainer{
+    margin-bottom: 30px;
+}
+
+u{
+    font-size: 13pt;
+}
+
+.card{
+    display: flex;
+}
+
+.cards{
+    width: 48%;
+    background-color: rgb(40, 40, 40);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 4px;
+    text-align: center;
+}
+
+.cards p{
+    margin-top: 10px;
+}
+
+.logo{
+    width: 70px;
+}
+
+.cards:hover{
+    background-color: rgb(60, 60, 60);
+}
+
+select{
+    background-color: rgb(40, 40, 40);
+    color: inherit;
+    font-size: inherit;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-bottom: 10px;
+}
+
+.resultConverting{
+    margin: 15px 5px;
+    font-size: 15pt;
+}
+
+
+.click{
+    user-select: none;
+    cursor: pointer;
+}
+
+#home{
+    user-select: none;
+    cursor: pointer;
+    border-radius: 10px;
+    width: 70px;
+    margin-bottom: 30px;
+}
+
+#home:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+.overviewContent{
+    display: flex;
+    width: 100%;
+}
+
+.merkmale{
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.merkmale li{
+    margin-bottom: 10px;
+}
+
+.normalList{
+    margin: 20px 0 20px 30px;
+}
+
+.datenschutzTabelle{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    font-size: 13pt;
+    width: 100%;
+    border-radius: 10px;
+    background-color: rgb(40, 40, 40);
+    padding: 10px;
+}
+
+.datenschutzTabelle thead{
+    font-size: 16pt;
+    font-weight: bolder;
+}
+
+.datenschutzTabelle td{
+    height: 30px;
+}
+
+@media(max-width: 600px) {
+    .calculator, .timer, #guessNumber{
+        width: 100%;
+    }
+
+    #projectClick{
+        margin-left: 0%;
+    }
+
+    #sliderContent{
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+}
+
+@media(min-width: 601px) {
+    #slider{
+        width: 80%;
+    }
+}

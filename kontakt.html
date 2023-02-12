@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontakt</title>
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/structure.css">
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav>
+
+    </nav>
+    <main>
+        <h1><img src="img/info.svg" alt="" class="headlineIcon"> Für welche Zwecke ist eine Kontaktaufnahme geeignet?
+        </h1>
+        <table id="contactPossibilities">
+            <tr>
+                <td><img src="img/bug.svg" alt="" class="headlineIcon"> Fehlermeldung: Fehler in den Tools,
+                    Rechtschreibfehler, falsche Informationen</td>
+                <td><img src="img/check.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td><img src="img/feedback.svg" alt="" class="headlineIcon"> Feedback: Positive und negative Rückmeldung
+                    zu der Benutzerfreundlichkeit, der Funktionen und dem Design</td>
+                <td><img src="img/check.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td><img src="img/help.svg" alt="" class="headlineIcon"> Fragen: Fragen zu Updates, Informationen und
+                    Tools</td>
+                <td><img src="img/check.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td><img src="img/terminal.svg" alt="" class="headlineIcon"> Vorschläge und Wünsche für neue Tools</td>
+                <td><img src="img/check.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td><img src="img/shield.svg" alt="" class="headlineIcon"> Datenschutzfragen: Genau Einblicke in die
+                    Datenerhebung, -speicherung und -nutzung</td>
+                <td><img src="img/check.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td><img src="img/smartphone.svg" alt="" class="headlineIcon"> Privates Chatten</td>
+                <td><img src="img/close.svg" alt="" class="headlineIcon"></td>
+            </tr>
+        </table>
+        <h1><img class="headlineIcon" src="img/contact.svg" alt="">Kontaktformular</h1>
+        <div class="container">Die einfachste und offizielle Möglichkeit ist es, das folgende Kontaktformular
+            auszufüllen. Du sendest mir damit eine E-Mail, welche ich dann beantworte. Gib deshalb deine echte Adresse
+            an.</div>
+        <form action="kontakt.php" method="post"
+            onsubmit="alert('Das Formular wurde erfolgreich abgesendet! Dein Anliegen wird schnellstmöglich bearbeitet.')">
+            <input type="text" name="name" required placeholder="Name">
+            <br>
+            <input type="email" name="mail" required placeholder="E-Mail-Adresse">
+            <br>
+            <input type="text" name="subject" required placeholder="Betreff">
+            <br>
+            <textarea name="message" required placeholder="Nachricht"></textarea>
+            <br>
+            <button type="submit" name="submit" id="submit">Formular absenden</button>
+        </form>
+        <p class="subInfo"><img src="img/shield.svg" alt="" class="headlineIcon"> Mit dem Kontaktformular werden
+            persönliche Informationen, wie der Name und die E-Mail-Adresse erhoben. Mit diesen wird sorgsam umgegangen.
+            Genau Informationen stehen in der <a href="datenschutz.html">Datenschutzerklärung</a>.</p>
+        <h1><img class="headlineIcon" src="img/mail.svg" alt=""> E-Mail</h1>
+        <div class="container">Auch wenn du mit dem Kontaktformular mir automatisch eine E-Mail schreibst, kannst du
+            dies auch manuell erledigen. Dies kann hilfreich sein, wenn du bestimmte Formatierungen vornehmen oder
+            Anhänge versenden möchtest.
+            <br>Für deine E-Mails schreibe bitte an folgende Addresse: <b>cjwaehler@gmail.com</b>
+        </div>
+        <h1><img class="headlineIcon" src="img/phone.svg" alt=""> Telefonischer Kontakt</h1>
+        <div class="container">Es ist auch möglich, mich über WhatsApp, SMS oder Anruf zu erreichen. Beachte bitte, dass
+            ich nicht immer zur Verfügung stehe und ich den Kontakt per E-Mail (normale E-Mail und Kontaktformular)
+            bevorzuge.
+            <br>Willst du dennoch mich telefonisch kontaktieren, schreibe an folgende Nummer oder rufe sie an: <b>0 1590
+                7002725</b>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="scripts/menu.js"></script>
+    <noscript>
+        <h1 id="warning">Bitte aktiviere JavaScript in deinem Browser! Dies ist für die Nutzung der Website und der
+            erstellten Tools nötig. Dein Feedback kannst du über das folgende Kontaktformular verschicken.</h1>
+    </noscript>
+</body>
+
+</html>

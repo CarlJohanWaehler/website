@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timer-App</title>
+    <link rel="stylesheet" href="../stylesheets/timer.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+    <link rel="shortcut icon" href="../img/timer.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav></nav>
+    <main><input type="number" name="" id="minutes" min="0">
+        <input type="number" name="" id="seconds" min="0">
+        <br><br>
+        <img src="../img/play.svg" title="Abspielen" id="submit" onclick="startTimer()" class="icon">
+        <img src="../img/pause.svg" title="Pausieren" class="icon unsichtbar" id="break">
+        <img src="../img/stop.svg" title="Beenden" class="icon unsichtbar" id="end">
+        <img src="../img/reset.svg" title="Timer auf Anfangswert zurücksetzen" class="icon unsichtbar" id="reset">
+        <br><br><br>
+        <img src="../img/sound.svg" title="Alarm-Ton auswählen" class="icon" onclick="soundMenu()">
+        <img onclick="saveTimer()" id="save" class="icon" src="../img/download.svg" title="Timer speichern">
+        <img id="restore" onclick="restoreTime(), resetTime = false" src="../img/upload.svg"
+            title="Gespeicherten Timer wiederherstellen" class="icon"></button>
+        <div id="sounds" class="unsichtbar">
+            <p onclick="chooseSound(1)">Alarm 01 (Windows 11)</p>
+            <p onclick="chooseSound(2)">Alarm 02 (Windows 11)</p>
+            <p onclick="chooseSound(3)">Alarm 03 (Windows 11)</p>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/timer.js"></script>
+    <script src="../scripts/menu.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Willkommen auf meiner Website!</title>
+    <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="stylesheets/main.css">
+    <link rel="stylesheet" href="stylesheets/structure.css">
+</head>
+
+<body>
+    <nav>
+    </nav>
+    <main>
+        <h1><img class="headlineIcon" src="img/info.svg" alt=""> Herzlich Willkommen!</h1>
+        <div class="container">Hallo, ich bin Carl-Johan! Das ist meine Website, auf welcher ich meine erstellten
+            Online-Tools vorstelle und zur Benutzung freigebe. Ebenso will ich hier mein Wissen über Software,
+            schwerpunktmäßig Windows, weitergeben. Das tolle für Sie als Nutzer (in allen weiteren Texten und in den
+            Tools wird die Du-Form verwendet) ist, dass alles kostenlos ist und Sie Ihr Feedback niederschreiben können.
+            Wenn etwas schlecht aussieht oder fehlerhaft ist, bitte nicht schweigen. Konstruktive Kritik hilft mir sehr,
+            meinen Internetauftritt zu verbessern.</div>
+        <h1><img class="headlineIcon" src="img/news.svg" alt=""> Aktuelle Neuigkeiten</h1>
+        <h3 class="newsHeadline"><img class="headlineIcon" src="img/feed.svg" alt=""> 12.02.2023</h3>
+        <div class="container">Die Website ging heute live. Sie ist aus diesem Grund noch nicht ausreichend getestet
+            worden und befindet sich deshalb in einem Testmodus. Außerdem sind erst 2 der 7 Tools verfügbar. Grund dafür
+            ist, dass alle Tools noch an das Aussehen der Website angepasst werden müssen. Die Tools sind zwar fertig,
+            nutzen aber ein anderes Design und sind nicht für die Nutzung innerhalb der Website optimiert. Dies wird
+            erst in der nächsten Zeit vorgenommen.
+            Noch ein Wermutstropfen: Die Computer-Tipps, die einmal auf dieser Website erscheinen sollen, gibt es
+            auch noch nicht.    
+        </div>
+        <h1><img class="headlineIcon" src="img/computer.svg" alt=""> Meine Projekte im Überblick</h1>
+        <div id="slider">
+            <div id="projectClick">
+                <img class="sliderControl" onclick="sliderLeft()" src="img/arrow_left.svg" alt="">
+                <span onclick="chooseSlider(0)">●</span>
+                <span onclick="chooseSlider(1)">●</span>
+                <span onclick="chooseSlider(2)">●</span>
+                <span onclick="chooseSlider(3)">●</span>
+                <span onclick="chooseSlider(4)">●</span>
+                <span onclick="chooseSlider(5)">●</span>
+                <span onclick="chooseSlider(6)">●</span>
+                <img class="sliderControl" onclick="sliderRight()" src="img/arrow_right.svg" alt="">
+                <br>
+                <p>Automatische Umschaltung: <img onclick="disableAutoSwitch()" class="toggles" src="img/toggle_on.svg"
+                        title="Ein" id="shiftOn"> <img onclick="disableAutoSwitch()" src="img/toggle_off.svg"
+                        title="Aus" id="shiftOff" class="toggles toggleUnvisible"></p>
+            </div>
+            <div id="sliderContent">
+                <div>
+                    <h3><img class="headlineIcon" src="img/calculator.svg" alt=""> Taschenrechner</h3>
+                    <p><img src="img/calculator.png" alt="" class="calculator"></p>
+                    <p>Ein Taschenrechner, welcher neben den Grundrechenarten auch das Potenzieren und Radizieren
+                        beherrscht</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/timer.svg" alt=""> Timer</h3>
+                    <p><a href="timer/index.html"><img src="img/timer.png" alt="" class="timer"></a></p>
+                    <p>Ein einfacher Timer, welcher es auch erlaubt, bestimmte Zeiten abzuspeichern</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/quiz.svg" alt=""> Zahlen-Ratespiel</h3>
+                    <p><img src="img/guess_number.png" alt="" id="guessNumber"></p>
+                    <p>Teste, wie gut du Zahlen erraten kannst.</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/game.svg" alt=""> Tic-Tac-Toe</h3>
+                    <p><img src="img/tictactoe.png" alt="" class="calculator"></p>
+                    <p>Spiele gegen einen anderen Spieler und schaue nach jedem Spiel an, wie oft ein Spieler gewonnen
+                        hat und welche Gewinnquote er hat.</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/checklist.svg" alt=""> To-do-Liste</h3>
+                    <p><img src="img/todo.png" alt="" class="timer"></p>
+                    <p>Ganz einfach Aufgaben anlegen und verwalten</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/notes.svg" alt=""> Notiz-App</h3>
+                    <p><img src="img/notes.png" alt="" class="timer"></p>
+                    <p>Notizen anlegen und bearbeiten</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/converting.svg" alt=""> Einheitenumwandler</h3>
+                    <p><a href="unit_converter/index.html"><img src="img/converter.png" alt="" class="timer"></a></p>
+                    <p>Schnell und einfach Einheiten umrechnen, beispielsweise Länge, Fläche oder Dateigröße</p>
+                </div>
+            </div>
+        </div>
+        <br>
+        <h1><img class="headlineIcon" src="img/person.svg" alt=""> Einige Infos über mich</h1>
+        <div class="container">Ich bin ein Computer Nerd. Ich habe mich viel damit beschäftigt, wie ich Probleme mit dem
+            Computer lösen
+            kann. So bin ich in meiner Familie der Ansprechpartner für Probleme und auch dafür, wie man Computer updatet
+            und einrichtet.
+            <br><button class="linkButtons" onclick="window.location.href='vorstellung.html'">mehr</button>
+        </div>
+        <h1> <img class="headlineIcon" src="img/info.svg" alt=""> Blick hinter die Kulissen: Meine Tools zur
+            Programmierung</h1>
+        <div class="container">Ich will auch einen Einblick in meine Arbeit geben. Ihr werdet erfahren, welche Tools ich
+            zur Erstellung dieser Website und für die Programmierung der ganzen Tools verwendet habe.
+            <br><button class="linkButtons" onclick="window.location.href='tools.html'">mehr</button>
+
+        </div>
+        <h1> <img class="headlineIcon" src="img/tipp.svg" alt=""> Computer-Tipps</h1>
+        <div class="container">Da ich mich intensiv mit Computern beschäftige, kann ich dir auch einige Tipps mit auf
+            den Weg geben, wie man seinen Computer optimieren kann, sicherer macht und Probleme lösen kann. Auch wirst
+            du einige kostenlose, aber sehr gute Tools vorgestellt bekommen, die deine Arbeit erleichtern.
+            <br><button class="linkButtons" onclick="window.location.href='tipps.html'">mehr</button>
+        </div>
+        <h1><img class="headlineIcon" src="img/contact.svg" alt=""> Unterstütze mich</h1>
+        <div class="card">
+            <div class="cards click" onclick="window.open('https://github.com/CarlJohanWaehler/web')">
+                <h2><img class="logo" src="img/github.png" alt=""></h2>
+                <h2>GitHub</h2>
+                <p>Die Website bekommt bald ein GitHub-Repository. Dort kannst du unter der Rubrik "Issues"
+                    Diskussionsthemen erstellen oder in bereits vorhandenen kommentieren. Voraussetzung ist, dass du ein
+                    kostenloses GitHub-Konto besitzt.</p>
+            </div>
+            <div class="cards click" onclick="window.location.href='kontakt.html'">
+                <h2><img src="img/feedback.svg" alt="" class="logo"></h2>
+                <h2>Kontaktformular</h2>
+                <p>Das offizielle Kontaktformular der Website kann von jedem genutzt werden, ohne dass man sich anmelden
+                    muss.</p>
+            </div>
+        </div>
+    </main>
+    <footer>
+    </footer>
+    <script src="scripts/menu.js"></script>
+    <script src="scripts/slider.js"></script>
+    <noscript>
+        <h1 id="warning">Bitte aktiviere JavaScript in deinem Browser! Dies ist für die Nutzung der Website und der
+            erstellten Tools nötig.</h1>
+    </noscript>
+</body>
+
+</html>

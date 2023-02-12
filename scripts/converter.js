@@ -167,7 +167,7 @@ temperature.addEventListener('keyup', function(e) {
 
 function temperatureChange() {
     let temperatureUnit1 = document.getElementById('temperatureUnit1').value;
-    let temperatureUnit2 = document.getElementById('temperatureUnit1').value;
+    let temperatureUnit2 = document.getElementById('temperatureUnit2').value;
     if(temperatureUnit1 === 'c') {
         if(temperatureUnit2 === 'f') {
             result.innerHTML = temperature.value * 1.8 + 32;

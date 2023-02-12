@@ -172,6 +172,10 @@ main a:hover{
     main, header{
         margin: 45px 30px;
     }
+
+    footer{
+        padding: 10px 0 20px 10px;
+    }
 }
 
 @media(min-width: 601px) {

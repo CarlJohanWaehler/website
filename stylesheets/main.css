@@ -330,6 +330,23 @@ select{
         margin-left: 5px;
         margin-right: 5px;
     }
+
+    .linkButtons{
+        margin-left: 0;
+        width: 50%;
+    }
+
+    #slider{
+        width: 100%;
+    }
+
+    .cards{
+        padding: 10px;
+    }
+
+    .cards h2{
+        font-size: 15pt;
+    }
 }
 
 @media(min-width: 601px) {

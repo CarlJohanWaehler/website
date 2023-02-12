@@ -1,7 +1,7 @@
-let alarm = new Audio('../sounds/alarm1.wav');
-let sound1 = new Audio('../sounds/alarm1.wav');
-let sound2 = new Audio('../sounds/alarm2.wav');
-let sound3 = new Audio('../sounds/alarm3.wav');
+let alarm = new Audio('https://chipper-souffle-94ae56.netlify.app/sounds/alarm1.wav');
+let sound1 = new Audio('https://chipper-souffle-94ae56.netlify.app/sounds/alarm1.wav');
+let sound2 = new Audio('https://chipper-souffle-94ae56.netlify.app/sounds/alarm2.wav');
+let sound3 = new Audio('https://chipper-souffle-94ae56.netlify.app/sounds/alarm3.wav');
 
 let start = document.getElementById('submit');
 let pause = document.getElementById('break');

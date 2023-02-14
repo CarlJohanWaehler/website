@@ -22,13 +22,23 @@
         <img src="../img/reset.svg" title="Timer auf Anfangswert zurücksetzen" class="icon unsichtbar" id="reset">
         <br><br><br>
         <img src="../img/sound.svg" title="Alarm-Ton auswählen" class="icon" onclick="soundMenu()">
-        <img onclick="saveTimer()" id="save" class="icon" src="../img/download.svg" title="Timer speichern">
-        <img id="restore" onclick="restoreTime(), resetTime = false" src="../img/upload.svg"
-            title="Gespeicherten Timer wiederherstellen" class="icon"></button>
+        <img onclick="saveTimer()" id="save" class="icon" src="../img/download.svg" title="Aktuellen Timer speichern">
+        <img id="restore" src="../img/upload.svg" title="Gespeicherten Timer auswählen" class="icon" onclick="openTimerSelection()">
         <div id="sounds" class="unsichtbar">
             <p onclick="chooseSound(1)">Alarm 01 (Windows 11)</p>
             <p onclick="chooseSound(2)">Alarm 02 (Windows 11)</p>
             <p onclick="chooseSound(3)">Alarm 03 (Windows 11)</p>
+        </div>
+        <div id="savedTimers" class="unsichtbar">
+            <div id="closeBar">
+                <h2>Gespeicherten Timer auswählen</h2>
+                <p class="close" onclick="openTimerSelection()">X</p>
+            </div>
+            <div id="boxContent">
+            </div>
+            <div id="deleteAll">
+                <h2>Alle Timer löschen: <img onclick="deleteAllTimers()" class="delete" src="../img/delete.svg" alt=""></h2>
+            </div>
         </div>
     </main>
     <footer></footer>

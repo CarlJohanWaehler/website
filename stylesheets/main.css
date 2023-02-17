@@ -9,6 +9,14 @@ p, div{
     margin-bottom: 30px;
 }
 
+.container ul, .container ol{
+    padding: 5px 20px;
+}
+
+.container ul li, .container ol li{
+    margin-bottom: 5px;
+}
+
 h1{
     margin-bottom: 20px;
 }
@@ -28,7 +36,7 @@ h1{
 }
 
 #guessNumber{
-    width: 50%;
+    width: 70%;
     border-radius: 10px;
 }
 
@@ -102,7 +110,6 @@ h1{
     text-align: center;
     font-size: 15pt;
 }
-
 
 .linkButtons{
     margin-top: 10px;
@@ -289,6 +296,7 @@ select{
 .merkmale{
     margin-top: 20px;
     margin-left: 10px;
+    text-align: left;
 }
 
 .merkmale li{
@@ -318,6 +326,50 @@ select{
     height: 30px;
 }
 
+.wurzelexponent{
+    height: 200px;
+    margin: 10px 0;
+}
+
+.radikantexponent{
+    height: 160px;
+    margin: 10px 0;
+}
+
+#numberField{
+    width: 200px;
+    min-width: 200px;
+    height: 44px;
+}
+
+#difficulty{
+    margin-bottom: 30px;
+    width: 200px;
+}
+
+.disabled {
+    pointer-events: none;
+    user-select: none;
+}
+
+#newGame{
+    background-color: rgba(40, 40, 40, 0.9);
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+#dialogContent{
+    background-color: rgb(20, 20, 20);
+    position: absolute;
+    padding: 20px;
+    top: 200px;
+    left: 18%;
+    border-radius: 10px;
+}
+
 @media(max-width: 600px) {
     .calculator, .timer, #guessNumber{
         width: 100%;
@@ -335,6 +387,10 @@ select{
     .linkButtons{
         margin-left: 0;
         width: 50%;
+    }
+
+    .linkButtons:active{
+        width: 70%;
     }
 
     #slider{

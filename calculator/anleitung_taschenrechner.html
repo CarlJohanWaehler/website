@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bedienungsanleitung für den Taschenrechner</title>
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+    <link rel="shortcut icon" href="../img/calculator.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <div class="container">Der Taschenrechner wurde zwar so entwickelt, dass er einfach zu bedienen ist, jedoch gibt
+            es einige Hinweise, die man beachten sollte. Die nachfolgende Übersicht solltest du dir einmal durchlesen.
+        </div>
+        <h1><img src="../img/help.svg" alt="" class="headlineIcon"> Was muss man beim Schreiben der einzelnen
+            Rechenzeichen beachten?</h1>
+        <div class="container">
+            Folgende Zeichen lassen sich auch auf den Buttons finden:
+            <ul>
+                <li>Verwende für Multiplikation einen Stern (*)</li>
+                <li>Verwende für Division einen Schrägstrich (/)</li>
+                <li>Für Potenzen verwendest du einen Zirkumflex (^) oder. Dabei schreibt man erst die Basis, dann die beiden Sterne
+                    und dann den Exponent.</li>
+            </ul>
+
+            <br>
+            Wurzeln müssen als Potenz geschrieben werden. Hier müssen jedoch einige Regeln beachtet werden, welche du in
+            einem eigenen Abschnitt findest.
+        </div>
+        <h1><img src="../img/info.svg" alt="" class="headlineIcon"> Hinweise zum Schreiben von Wurzeln</h1>
+        <div class="container">
+            1) Die Darstellung als Potenz geschieht folgendermaßen:
+            <br><img src="../img/wurzel.png" alt="">
+            <br>Im Taschenrechner gibt man dann folgendes ein: <b>b ^ (c / a)</b>
+            <br>Bei Quadratwurzeln ist immer a = 2 und c = 1
+            <br><br>
+            2) Anstatt dieser komplizierten Schreibweise kann man einfach den Wurzel-Button nutzen. Die Erstellung der
+            Wurzel erfolgt über verschiedene Dialoge:
+            <ol>
+                <li>Man gibt die Basis ein, also die Zahl, von welcher die Wurzel gezogen werden soll</li>
+                <li>Man klickt auf das Wurzel-Zeichen</li>
+                <li>In das erste Eingabefeld gibt man ein, wie groß a sein soll, also der Wurzelexponent. Bei
+                    Quadratwurzeln ist a = 2.
+                    <br><img class="wurzelexponent" src="../img/wurzel_exponent.png" alt="">
+                </li>
+                <li>Nun muss man c eingeben. Das ist der Exponent des Radikanten (Zahl, von der eine Wurzel gezogen
+                    werden soll) Standardmäßig ist c = 1. Ist c = 0, so ist die ganze Wurzel = 1. Einen anderen Wert für
+                    c einzugeben, kann bei komplexeren Rechnungen hilfreich sein.
+                    <br><img src="../img/radikant_exponent.png" alt="" class="radikantexponent">
+                </li>
+                <li>Im Eingabefeld sieht man nun den exakten Rechenbefehl ausgeschrieben. Man kann diesen nun
+                    kontrollieren, abändern oder weitere Befehle ergänzen.</li>
+            </ol>
+        </div>
+        <h1><img src="../img/help.svg" alt="" class="headlineIcon"> Wie muss man Kommas schreiben?</h1>
+        <div class="container">Du kannst Kommas sowohl mit dem Punkt (.) als auch dem Komma (,) schreiben. Es ändert
+            sich nichts an der Funktionsweise des Rechners.
+            <br>Im Ergebnis wird jedoch immer ein Komma angezeigt und auch wenn man mit der Maus den Button anklickt,
+            wird ein Komma verwendet.
+        </div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/menu.js"></script>
+</body>
+
+</html>

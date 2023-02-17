@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../stylesheets/structure.css">
+  <link rel="stylesheet" href="../stylesheets/main.css">
+  <link rel="shortcut icon" href="../img/quiz.ico" type="image/x-icon">
+  <title>Zahlen raten</title>
+</head>
+
+<body>
+  <nav></nav>
+  <main>
+    <h3><img src="../img/help.svg" alt="" class="headlineIcon"> Schwierigkeitsgrad:</h3>
+    <div class="card" id="diffcultySetting">
+      <div class="cards click" onclick="difficulty('easy')">leicht (0 - 50)</div>
+      <div class="cards click" onclick="difficulty('medium')">mittel (0 - 100)</div>
+      <div class="cards click" onclick="difficulty('hard')">schwer (0 - 1000)</div>
+      <div class="cards click" onclick="difficulty('user')">benutzerdefiniert</div>
+    </div>
+    <br>
+    <h1 id="task"></h1>
+    <input type="number" id="numberField" min="0" class="toggleUnvisible">
+    <br>
+    <p id="message"></p>
+    <br>
+    <button class="accept toggleUnvisible" id="setGuess" onclick="checkNumber()">Eingabe absenden</button>
+    <div id="newGame" class="toggleUnvisible">
+      <div id="dialogContent">
+        <h1 id="winText"></h1>
+        <button class="accept" onclick="newGame()">Neues Spiel</button>
+      </div>
+    </div>
+  </main>
+  <footer></footer>
+  <script src="../scripts/menu.js"></script>
+  <script src="../scripts/guess_number.js"></script>
+</body>
+
+</html>

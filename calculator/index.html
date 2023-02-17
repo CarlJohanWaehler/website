@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../stylesheets/calculator.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+    <link rel="shortcut icon" href="../img/calculator.ico" type="image/x-icon">
+    <title>Taschenrechner</title>
+</head>
+<body>
+    <nav class="toggleUnvisible"></nav>
+    <img class="openMenu" src="../img/menu.svg" title="Menüs ein - / ausklappen" onclick="openMenu()">
+    <table>
+        <tr>
+            <td id="interimResult" colspan="4"></td>
+        </tr>
+        <tr>
+            <td colspan="4" id="inputField"><input type="text" id="resultArea"></input></td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations(' 𝛑 ')">𝛑</td>
+            <td onclick="radizieren = true, wurzelRemove = true; selectOperations(' ^ (')">√</td>
+            <td onclick="deleteAll()">C</td>
+            <td onclick="deleteLast()">⌫</td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations('(')">(</td>
+            <td onclick="selectOperations(')')">)</td>
+            <td onclick="selectOperations(' * ')">*</td>
+            <td onclick="selectOperations(' / ')">/</td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations(7)">7</td>
+            <td onclick="selectOperations(8)">8</td>
+            <td onclick="selectOperations(9)">9</td>
+            <td onclick="selectOperations(' + ')">+</td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations(4)">4</td>
+            <td onclick="selectOperations(5)">5</td>
+            <td onclick="selectOperations(6)">6</td>
+            <td onclick="selectOperations(' - ')">-</td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations(1)">1</td>
+            <td onclick="selectOperations(2)">2</td>
+            <td onclick="selectOperations(3)">3</td>
+            <td rowspan="2" onclick="calculateResult()" id="result">=</td>
+        </tr>
+        <tr>
+            <td onclick="selectOperations(0)">0</td>
+            <td onclick="selectOperations(',')">,</td>
+            <td onclick="exponent = true, selectOperations(' ^ ')">^</td>
+        </tr>
+    </table>
+    <footer class="toggleUnvisible"></footer>
+    <script src="../scripts/calculator.js"></script>
+    <script src="../scripts/menu.js"></script>
+</body>
+</html>

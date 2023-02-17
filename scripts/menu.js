@@ -2,6 +2,7 @@ const navigation = document.querySelector('nav');
 const footer = document.querySelector('footer');
 createMenu();
 createFooterMenu();
+let openedMenu = false;
 
 function createMenu() {
     navigation.innerHTML = `<p id="toggleMain" onclick="openMain()"></p>
@@ -84,5 +85,17 @@ function openSubMobile() {
         subOpened = false;
         toggleSub.innerHTML = '▼';
         subOpener.classList.remove('disabled');
+    }
+}
+
+function openMenu() {
+    if (!openedMenu) {
+        navigation.classList.remove('toggleUnvisible');
+        footer.classList.remove('toggleUnvisible');
+        openedMenu = true;
+    } else {
+        navigation.classList.add('toggleUnvisible');
+        footer.classList.add('toggleUnvisible');
+        openedMenu = false;
     }
 }

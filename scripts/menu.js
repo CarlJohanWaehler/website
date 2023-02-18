@@ -78,13 +78,13 @@ function openSubMobile() {
         sub.classList.remove('unvisible');
         subOpened = true;
         toggleSub.innerHTML = '▲';
-        subOpener.classList.add('disabled');
+        subOpener.classList.add('toggleDisabled');
     } else {
         sub.classList.add('unvisible');
         sub.classList.remove('visible');
         subOpened = false;
         toggleSub.innerHTML = '▼';
-        subOpener.classList.remove('disabled');
+        subOpener.classList.remove('toggleDisabled');
     }
 }
 

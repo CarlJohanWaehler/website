@@ -350,6 +350,7 @@ select{
 .disabled {
     pointer-events: none;
     user-select: none;
+    overflow: hidden;
 }
 
 #newGame{
@@ -413,5 +414,13 @@ select{
     .overviewContent{
         display: initial;
         width: 100%;
+    }
+
+    #newGame{
+        height: 150%;
+    }
+
+    #dialogContent{
+        left: 5%;
     }
 }

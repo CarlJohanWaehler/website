@@ -1,18 +1,19 @@
 let radizieren = false;
 const resultArea = document.getElementById('resultArea');
 const interimResultArea = document.getElementById('interimResult');
+const body = document.body;
 let exponent = false;
 let wurzelRemove = false;
+let exponentCorrection = false;
 
-resultArea.addEventListener("keyup", pressEnter);
-
-function pressEnter(e) {
-    if (e.keyCode == 13) {
+body.addEventListener("keyup", function(e) {
+    if (e.keyCode === 13) {
         calculateResult();
     } else {
         interimResult();
     }
-}
+});
+
 function selectOperations(operation) {
     if (radizieren) {
         let radikantExponent = prompt("Welchen Exponent soll der Radikant (Zahl vor dem Klick auf das Wurzelsymbol) haben? Standardmäßig beträgt dieser Wert 1.");
@@ -100,6 +101,9 @@ function interimResult() {
             }
         }
         interimResultArea.innerHTML = interimResultArea.innerHTML.replace('.', ',');
+        if(interimResultArea.innerHTML !== 'undefined') {
+            interimResultArea.innerHTML = interimResultArea.innerHTML.replace('e', ' * 10 ^ ');
+        }
         if (interimResultArea.innerHTML === 'Infinity') {
             interimResultArea.innerHTML = 'Division durch 0 nicht möglich!';
         } else if (interimResultArea.innerHTML === 'undefined') {
@@ -107,7 +111,6 @@ function interimResult() {
         } else if (interimResultArea.innerHTML === 'NaN') {
             interimResultArea.innerHTML = 'Bitte prüfe deine Eingabe!';
         }
-        interimResultArea.innerHTML = interimResultArea.innerHTML.replace('e', ' * 10 ^ ');
         interimResultArea.innerHTML = interimResultArea.innerHTML.replace('+', '');
         while (interimResultArea.innerHTML.endsWith('0') && interimResultArea.innerHTML.match(',')) {
             interimResultArea.innerHTML = interimResultArea.innerHTML.slice(0, -1);

@@ -133,6 +133,11 @@ main a:hover{
     color: red;
 }
 
+.toggleDisabled:hover{
+    background-color: rgb(50, 50, 50);
+    cursor: initial;
+}
+
 @media(max-width: 600px) {
     nav ul{
         display: block;

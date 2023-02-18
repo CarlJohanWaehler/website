@@ -65,6 +65,7 @@ function endScreen() {
     newGameDialoge.classList.remove('toggleUnvisible');
     message.innerHTML = '';
     numberField.value = '';
+    footer.classList.add('disabled');
     winText.innerHTML = `<img class="headlineIcon" src="../img/info.svg"> Du hast gewonnen! Deine benötigten Versuche: ${tries}`;
 }
 
@@ -75,4 +76,5 @@ function newGame() {
     task.innerHTML = '';
     newGameDialoge.classList.add('toggleUnvisible');
     tries = 0;
+    footer.classList.remove('disabled');
 }

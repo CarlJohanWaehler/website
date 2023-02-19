@@ -1,0 +1,62 @@
+#newNote{
+    color: inherit;
+    background-color: rgb(40, 40, 40);
+    min-width: 70%;
+    max-width: 100%;
+    min-height: 100px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 8px 12px;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#notes{
+    margin-top: 10px;
+}
+
+.notesEntry{
+    padding: 15px;
+    background-color: rgb(40, 40, 40);
+    margin-top: 5px;
+    border-radius: 15px;
+    font-size: 15pt;
+}
+
+.notesEntry:hover{
+    background-color: rgb(60, 60, 60);
+}
+
+#notes button{
+    width: 35px;
+    height: 35px;
+}
+
+.editFields{
+    color: inherit;
+    background-color: rgb(40, 40, 40);
+    min-width: 60%;
+    max-width: 80%;
+    min-height: 100px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+    margin-bottom: 30px;
+    padding: 8px 12px;
+    font-size: inherit;
+    font-family: inherit;
+}
+
+#time{
+    text-align: right;
+    display: block;
+    width: 100%;
+    font-size: 14px;
+}
+
+.changes{
+    font-size: 12pt;
+    margin-top: 10px;
+    font-style: italic;
+    color: rgb(200, 200, 200);
+}

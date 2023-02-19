@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>To-do-App</title>
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+    <link rel="stylesheet" href="../stylesheets/todo.css">
+    <link rel="shortcut icon" href="../img/todo.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <input type="text" id="input">
+        <img src="../img/add.svg" class="button" alt="" title="Aufgabe hinzufügen" onclick="addTodo()">
+        <img src="../img/delete.svg" alt="" class="button" title="Alle Aufgaben löschen" onclick="removeAll()" id="deleteAll">
+        <div id="todolist"></div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/menu.js"></script>
+    <script src="../scripts/todo.js"></script>
+    <noscript>
+        <h1 class="warning">Bitte aktiviere JavaScript in deinem Browser, damit du die To-do-App nutzen kannst!</h1>
+    </noscript>
+</body>
+
+</html>

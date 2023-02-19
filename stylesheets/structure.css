@@ -138,6 +138,30 @@ main a:hover{
     cursor: initial;
 }
 
+.disabled {
+    pointer-events: none;
+    user-select: none;
+    overflow: hidden;
+}
+
+.headlineIcon{
+    vertical-align: middle;
+    width: 40px;
+}
+
+.button{
+    width: 40px;
+    border-radius: 10px;
+    user-select: none;
+    margin-left: 10px;
+    vertical-align: middle;
+    cursor: pointer;
+}
+
+.button:hover{
+    background-color: rgb(40, 40, 40);
+}
+
 @media(max-width: 600px) {
     nav ul{
         display: block;

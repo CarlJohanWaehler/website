@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic-Tac-Toe</title>
+    <link rel="stylesheet" href="../stylesheets/tictactoe.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+</head>
+
+<body>
+    <nav class="toggleUnvisible"></nav>
+    <img class="openMenu" src="../img/menu.svg" title="Menüs ein - / ausklappen" onclick="openMenu()">
+    <h3 id="player"></h3>
+    <div id="gameField">
+        <button onclick="setPlay(1)"></button>
+        <button onclick="setPlay(2)"></button>
+        <button onclick="setPlay(3)"></button>
+        <button onclick="setPlay(4)"></button>
+        <button onclick="setPlay(5)"></button>
+        <button onclick="setPlay(6)"></button>
+        <button onclick="setPlay(7)"></button>
+        <button onclick="setPlay(8)"></button>
+        <button onclick="setPlay(9)"></button>
+    </div>
+    <div id="win" class="toggleUnvisible">
+        <p id="winText"></p>
+        <button id="newGame" onclick="startNewGame()"></button>
+        <h1>Gewinn-Statistik</h1>
+        <button id="reset" title="Statistik zurücksetzen" onclick="resetStatistics()">↻</button>
+        <table id="statistic">
+            <tr>
+                <td>Spieler 1</td>
+                <td id="player1Win">0</td>
+            </tr>
+            <tr>
+                <td>Unentschieden</td>
+                <td id="undecidedCount">0</td>
+            </tr>
+            <tr>
+                <td>Spieler 2</td>
+                <td id="player2Win">0</td>
+            </tr>
+            <tr>
+                <td>Gewinnquote Spieler 1</td>
+                <td id="winQuote1"></td>
+            </tr>
+            <tr>
+                <td>Gewinnquote Spieler 2</td>
+                <td id="winQuote2"></td>
+            </tr>
+        </table>
+    </div>
+    <footer class="toggleUnvisible"></footer>
+    <script src="../scripts/tictactoe.js" defer></script>
+    <script src="../scripts/menu.js"></script>
+</body>
+
+</html>

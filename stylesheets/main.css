@@ -134,11 +134,6 @@ h1{
     width: 255px;
 }
 
-.headlineIcon{
-    vertical-align: middle;
-    width: 40px;
-}
-
 #warning{
     color: red;
 }
@@ -345,12 +340,6 @@ select{
 #difficulty{
     margin-bottom: 30px;
     width: 200px;
-}
-
-.disabled {
-    pointer-events: none;
-    user-select: none;
-    overflow: hidden;
 }
 
 #newGame{

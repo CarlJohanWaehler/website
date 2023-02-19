@@ -16,6 +16,7 @@ button{
 button:hover{
     background-color: rgb(30, 30, 30);
 }
+
 button:disabled{
     color: rgb(250, 250, 250);
     pointer-events: none;
@@ -58,8 +59,7 @@ button:disabled{
 #newGame{
     width: 200px;
     height: 100px;
-    margin-left: 40%;
-    margin-top: 30px;
+    margin: 30px 0 30px 40%;
     font-size: 30px;
     border-radius: 20px;
     border: initial;
@@ -91,6 +91,7 @@ h1{
     height: 10vh;
     font-size: 60px;
     text-align: center;
+    overflow-y: auto;
 }
 
 .openMenu{
@@ -118,9 +119,16 @@ h1{
 @media(max-width: 500px) {
     #newGame{
         margin-left: 30px;
+        width: 90%;
+        height: 80px;
     }
 
     #statistic{
         font-size: 11pt;
+    }
+
+    #player{
+        padding: 0 40px;
+        font-size: 40px;
     }
 }

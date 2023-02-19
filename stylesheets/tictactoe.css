@@ -63,29 +63,21 @@ button:disabled{
     font-size: 30px;
     border-radius: 20px;
     border: initial;
-    background-color: rgb(100, 100, 100);
+    background-color: rgb(40, 40, 40);
 }
 
 #newGame:hover{
     background-color: rgb(60, 60, 60);
 }
+
 h1{
     color: white;
     margin-left: 40px;
 }
 
-#reset{
-    width: 90px;
-    height: 90px;
-    position: absolute;
-    top: 50;
-    left: 25%;
-    border-radius: 20px;
-}
-
 #statistic{
     color: white;
-    font-size: 20px;
+    font-size: 15pt;
     background-color: rgb(30, 30, 30);
     padding: 10px;
     margin-left: 40px;
@@ -110,4 +102,25 @@ h1{
 
 .openMenu:hover{
     background-color: rgb(100, 100, 100);
+}
+
+
+.headlineIcon{
+    border-radius: 10px;
+    cursor: pointer;
+    user-select: none;
+}
+
+.headlineIcon:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+@media(max-width: 500px) {
+    #newGame{
+        margin-left: 30px;
+    }
+
+    #statistic{
+        font-size: 11pt;
+    }
 }

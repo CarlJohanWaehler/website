@@ -38,3 +38,8 @@ input{
   width: 70px;
 }
 
+@media(max-width: 500px) {
+  #todolist{
+    width: 100%;
+  }
+}

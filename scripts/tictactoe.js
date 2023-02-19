@@ -31,9 +31,6 @@ const winQuote1 = document.getElementById('winQuote1');
 const winQuote2 = document.getElementById('winQuote2');
 winQuoting();
 
-const reset = document.getElementById('reset');
-reset.innerHTML = '↻';
-
 let player2 = false;
 let end = false;
 let noWinner = [];
@@ -107,7 +104,6 @@ function winGame(noWin) {
             area.disabled = true;
         };
         fields[9].disabled = false;
-        fields[10].disabled = false;
         while (counter < 9) {
             noWinner.pop();
             counter++;
@@ -115,7 +111,6 @@ function winGame(noWin) {
         win.classList.remove('toggleUnvisible');
         footer.classList.add('disabled');
         newGame.innerHTML = 'Neues Spiel';
-        reset.innerHTML = '↻';
     };
     winQuoting();
 }

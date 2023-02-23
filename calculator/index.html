@@ -20,7 +20,7 @@
             <td id="interimResult" colspan="4"></td>
         </tr>
         <tr>
-            <td colspan="4" id="inputField"><input disabled type="text" id="resultArea"></input></td>
+            <td colspan="4" id="inputField"><input type="text" id="resultArea"></input></td>
         </tr>
         <tr>
             <td onclick="changeInputs()" title="Rechnung aus Zwischenergebnis-Zeile übernehmen">⇅</td>
@@ -30,7 +30,7 @@
         </tr>
         <tr>
             <td onclick="selectOperations('(')">(</td>
-            <td onclick="addCloseClip = false, selectOperations(')')">)</td>
+            <td onclick="selectOperations(')')">)</td>
             <td onclick="operator = true ,selectOperations(' * ')">*</td>
             <td onclick="operator = true ,selectOperations(' / ')">/</td>
         </tr>

@@ -185,3 +185,16 @@ input {
     color: rgb(200, 200, 200);
     user-select: none;
 }
+
+@media(max-width: 600px) {
+    #history{
+        left: 0;
+        width: 100%;
+    }
+
+    input{
+        margin-left: 15%;
+        width: 85%;
+        font-size: 40px;
+    }
+}

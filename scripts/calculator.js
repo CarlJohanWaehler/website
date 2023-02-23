@@ -76,9 +76,10 @@ function selectOperations(operation) {
         addCloseClip = false;
     } else if (operation === ')') {
         trigonometry = false;
-    } else if(operation === 1 || operation === 2 || operation === 3 || operation === 4 || operation === 5 || operation === 6 || operation === 7 || operation === 8 || operation === 9 || operation === 0) {
+        addCloseClip = false;
+    } else if (operation === 1 || operation === 2 || operation === 3 || operation === 4 || operation === 5 || operation === 6 || operation === 7 || operation === 8 || operation === 9 || operation === 0) {
         inputNumber += operation;
-    } else if(operation === '!') {
+    } else if (operation === '!') {
         faculty(parseInt(inputNumber));
     }
     if (radizieren) {
@@ -127,21 +128,37 @@ function calculateResult() {
         resultArea.value = resultArea.value.slice(0, -1);
     }
     if (result === Infinity) {
-        alert("Mathematischer Fehler: Division durch 0 ist nicht möglich!");
-        resultArea.value = "";
+        alert('Mathematischer Fehler: Division durch 0 ist nicht möglich!');
+        resultArea.value = '';
     } else if (result === undefined) {
-        alert("Bitte gib eine Zahl ein!");
-        resultArea.value = "";
+        alert('Bitte gib eine Zahl ein!');
+        resultArea.value = '';
     }
     inputChange = true;
     inputNumber = '';
-    historyContent.innerHTML += `<div onclick='restoreCalculation(${counter})'><p id='calculation${counter}' class='calculation'>${interimResultArea.innerHTML}</p><p id='result${counter}' class='result'>${resultArea.value}</p></div>`
-    counter++;
+    if (resultArea.value !== '') {
+        historyContent.innerHTML += `<div onclick='restoreCalculation(${counter})'><p id='calculation${counter}' class='calculation'>${interimResultArea.innerHTML}</p><p id='result${counter}' class='result'>${resultArea.value}</p></div>`
+        counter++;
+    }
 }
 
 function deleteLast() {
     if (resultArea.value.endsWith(' ')) {
         resultArea.value = resultArea.value.slice(0, -3);
+    } else if (resultArea.value.endsWith('asin (') || resultArea.value.endsWith('acos (') || resultArea.value.endsWith('atan (')) {
+        resultArea.value = resultArea.value.slice(0, -6);
+        trigonometry = false;
+    } else if (resultArea.value.endsWith('sin (') || resultArea.value.endsWith('cos (') || resultArea.value.endsWith('tan (') || resultArea.value.endsWith('cot (') || resultArea.value.endsWith('abs (')) {
+        resultArea.value = resultArea.value.slice(0, -5);
+        trigonometry = false;
+    } else if (resultArea.value.endsWith('rand')) {
+        resultArea.value = resultArea.value.slice(0, -4);
+    } else if (resultArea.value.endsWith('√')) {
+        resultArea.value = resultArea.value.slice(0, -1);
+        if (!addCloseClip) {
+            additionalCloseClips.pop();
+        }
+        addCloseClip = false;
     }
     else {
         resultArea.value = resultArea.value.slice(0, -1);
@@ -217,7 +234,7 @@ function replaceFirst(area) {
             area.value = area.value.replace('cos (', 'Math.cos(𝛑 / 180 * ');
             area.value = area.value.replace('tan (', 'Math.tan(𝛑 / 180 * ');
             area.value = area.value.replace('cot (', '1 / Math.tan(𝛑 / 180 * ');
-        } else if(angle.innerHTML === 'RAD') {
+        } else if (angle.innerHTML === 'RAD') {
             area.value = area.value.replace('asin (', 'Math.asin(');
             area.value = area.value.replace('acos (', 'Math.acos(');
             area.value = area.value.replace('atan (', 'Math.atan(');
@@ -248,15 +265,14 @@ function changeInputs() {
 }
 
 function showHistory() {
-    console.log('In future here you can see the history of your calculations ...');
-    if(historyOpen) {
+    if (historyOpen) {
         history.classList.add('toggleUnvisible');
         historyOpen = false;
         control.classList.remove('disabled');
         navigation.classList.remove('disabled');
         calculatorMenuToggle.classList.remove('disabled');
         body.style.overflow = 'initial';
-    } else{
+    } else {
         history.classList.remove('toggleUnvisible');
         historyOpen = true;
         openCalculatorMenu();

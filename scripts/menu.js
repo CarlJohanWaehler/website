@@ -98,4 +98,5 @@ function openMenu() {
         footer.classList.add('toggleUnvisible');
         openedMenu = false;
     }
+    openCalculatorMenu();
 }

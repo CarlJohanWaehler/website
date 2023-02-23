@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,39 +10,41 @@
     <link rel="shortcut icon" href="../img/calculator.ico" type="image/x-icon">
     <title>Taschenrechner</title>
 </head>
+
 <body>
     <nav class="toggleUnvisible"></nav>
-    <img class="openMenu" src="../img/menu.svg" title="Menüs ein - / ausklappen" onclick="openMenu()">
-    <table>
+    <img id="calculatorMenuToggle" class="openMenu" src="../img/menu.svg" onclick="openCalculatorMenu()">
+    <p id="angleDisplay"></p>
+    <table id="control">
         <tr>
             <td id="interimResult" colspan="4"></td>
         </tr>
         <tr>
-            <td colspan="4" id="inputField"><input type="text" id="resultArea"></input></td>
+            <td colspan="4" id="inputField"><input disabled type="text" id="resultArea"></input></td>
         </tr>
         <tr>
-            <td onclick="selectOperations(' 𝛑 ')">𝛑</td>
-            <td onclick="radizieren = true, wurzelRemove = true; selectOperations(' ^ (')">√</td>
+            <td onclick="changeInputs()" title="Rechnung aus Zwischenergebnis-Zeile übernehmen">⇅</td>
+            <td onclick="selectOperations('√'), addCloseClip = true" title="Quadratwurzel">√</td>
             <td onclick="deleteAll()">C</td>
             <td onclick="deleteLast()">⌫</td>
         </tr>
         <tr>
             <td onclick="selectOperations('(')">(</td>
-            <td onclick="selectOperations(')')">)</td>
-            <td onclick="selectOperations(' * ')">*</td>
-            <td onclick="selectOperations(' / ')">/</td>
+            <td onclick="addCloseClip = false, selectOperations(')')">)</td>
+            <td onclick="operator = true ,selectOperations(' * ')">*</td>
+            <td onclick="operator = true ,selectOperations(' / ')">/</td>
         </tr>
         <tr>
             <td onclick="selectOperations(7)">7</td>
             <td onclick="selectOperations(8)">8</td>
             <td onclick="selectOperations(9)">9</td>
-            <td onclick="selectOperations(' + ')">+</td>
+            <td onclick="operator = true ,selectOperations(' + ')">+</td>
         </tr>
         <tr>
             <td onclick="selectOperations(4)">4</td>
             <td onclick="selectOperations(5)">5</td>
             <td onclick="selectOperations(6)">6</td>
-            <td onclick="selectOperations(' - ')">-</td>
+            <td onclick="operator = true ,selectOperations(' - ')">-</td>
         </tr>
         <tr>
             <td onclick="selectOperations(1)">1</td>
@@ -52,11 +55,59 @@
         <tr>
             <td onclick="selectOperations(0)">0</td>
             <td onclick="selectOperations(',')">,</td>
-            <td onclick="exponent = true, selectOperations(' ^ ')">^</td>
+            <td onclick="selectOperations(' ^ 2')">x<sup>2</sup></td>
         </tr>
     </table>
+    <ul id="calculatorMenu" class="toggleUnvisible">
+        <li onclick="openMenu()"><img src="../img/menu_open.svg" alt="" class="menuIcons"> Hauptmenüs ein- / ausklappen
+        </li>
+        <li onclick="openAdditionalFeatures()"><img src="../img/science.svg" alt="" class="menuIcons"> Wissenschaftliche
+            Funktionen</li>
+        <li onclick="showHistory()"><img src="../img/history.svg" alt="" class="menuIcons"> Verlauf</li>
+        <li onclick="window.location.href='../unit_converter/index.html'"><img src="../img/converting.svg" alt=""
+                class="menuIcons"> Einheitenumwandler</li>
+    </ul>
+    <div id="additionalFeatures" class="toggleUnvisible">
+        <p class="close" onclick="openAdditionalFeatures()"><img src="../img/close.svg" alt=""></p>
+        <table>
+            <tr>
+                <td onclick="selectOperations(' E ')">e</td>
+                <td onclick="selectOperations(' 𝛑 ')">𝛑</td>
+                <td id="angle" onclick="changeAngle()">DEG</td>
+                <td onclick="selectOperations('!')">n!</td>
+            </tr>
+            <tr>
+                <td onclick="trigonometry = true, selectOperations('sin (')">sin</td>
+                <td onclick="trigonometry = true, selectOperations('cos (')">cos</td>
+                <td onclick="trigonometry = true, selectOperations('tan (')">tan</td>
+                <td onclick="trigonometry = true, selectOperations('cot (')">cot</td>
+            </tr>
+            <tr>
+                <td onclick="trigonometry = true, selectOperations('asin (')">sin<sup>-1</sup></td>
+                <td onclick="trigonometry = true, selectOperations('acos (')">cos<sup>-1</sup></td>
+                <td onclick="trigonometry = true, selectOperations('atan (')">tan<sup>-1</sup></td>
+                <td onclick="selectOperations(' % ')">%</td>
+            </tr>
+            <tr>
+                <td onclick="selectOperations(' ^ ')">x<sup>y</sup></td>
+                <td title="beliebige Wurzel ziehen" onclick="radizieren = true, selectOperations(' ^ (')"><sup>y</sup>√<sub>x</sub></td>
+                <td onclick="trigonometry = true, selectOperations('abs (')">|x|</td>
+                <td onclick="selectOperations('rand')">rand</td>
+            </tr>
+        </table>
+    </div>
+    <div id="history" class="toggleUnvisible">
+        <div id="closeBar">
+            <h2>Verlauf <img onclick="deleteHistory()" src="../img/delete.svg" title="Verlauf löschen"
+                    class="headlineIcon hoverIcon"></h2>
+            <p class="close cornerTopRight" onclick="showHistory()"><img src="../img/close.svg" alt=""></p>
+        </div>
+        <div id="boxContent">
+        </div>
+    </div>
     <footer class="toggleUnvisible"></footer>
     <script src="../scripts/calculator.js"></script>
     <script src="../scripts/menu.js"></script>
 </body>
+
 </html>

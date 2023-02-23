@@ -2,11 +2,10 @@ body{
     font-size: 29px;
 }
 
-table {
+table{
     width: 100%;
-    height: 100vh;
-    color: white;
     background-color: rgb(30, 30, 30);
+    height: 100vh;
 }
 
 td {
@@ -29,7 +28,7 @@ input {
     width: 97%;
     height: 100%;
     text-align: right;
-    font-size: 70px;
+    font-size: 50px;
     margin-left: 3%;
     padding: 0;
     color: white;
@@ -67,8 +66,122 @@ input {
     font-size: 10pt;
     text-align: right;
     padding-right: 20px;
+    user-select: text;
 }
 
 #interimResult:hover{
     background-color: rgb(30, 30, 30);
+}
+
+.menuIcons{
+    width: 40px;
+    vertical-align: middle;
+}
+
+#calculatorMenu{
+    position: absolute;
+    top: 50px;
+    left: 50px;
+    background-color: rgb(20, 20, 20);
+    user-select: none;
+    font-size: 15pt;
+    list-style: none;
+    min-width: 30%;
+    box-shadow: 0px 13px 13px 8px #000000;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+#calculatorMenu li{
+    cursor: pointer;
+    padding: 4px 0 4px 8px;
+    border-radius: 10px;
+}
+
+#calculatorMenu li:hover{
+    background-color: rgb(40, 40, 40);
+}
+
+#additionalFeatures{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgb(20, 20, 20);
+}
+
+.close{
+    position: absolute;
+    right: 0;
+    top: 0;
+}
+
+.cornerTopRight{
+    border-radius: 0 10px 0 0;
+}
+
+.close:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+.hoverIcon{
+    border-radius: 10px;
+    padding: 3px;
+    cursor: pointer;
+    margin-left: 20px;
+}
+
+.hoverIcon:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+#history {
+    background-color: rgb(40, 40, 40);
+    position: absolute;
+    top: 70px;
+    left: 20%;
+    height: 83%;
+    width: 60%;
+    border-radius: 10px;
+    box-shadow: 0px 13px 13px 5px #000000;
+}
+
+#boxContent {
+    overflow-y: auto;
+    height: 80%;
+}
+
+#closeBar {
+    border-bottom: 3px solid rgb(10, 10, 10);
+}
+
+#history h2 {
+    padding: 20px;
+    font-size: 20pt;
+}
+
+#boxContent div{
+    border-radius: 10px;
+    padding: 5px 5px 5px 20px;
+    margin-bottom: 5px;
+    user-select: none;
+    cursor: pointer;
+}
+
+#boxContent div:hover{
+    background-color: rgb(70, 70, 70);
+}
+
+.calculation{
+    font-size: 12pt;
+    color: rgb(200, 200, 200);
+}
+
+#angleDisplay{
+    position: absolute;
+    top: 90px;
+    font-size: 14pt;
+    left: 6px;
+    color: rgb(200, 200, 200);
+    user-select: none;
 }

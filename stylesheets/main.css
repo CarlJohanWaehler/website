@@ -3,10 +3,11 @@ p, div{
 }
 
 .container{
-    padding: 20px;
+    padding: 15px;
     background-color: rgb(40, 40, 40);
     border-radius: 10px;
     margin-bottom: 30px;
+    line-height: 1.5em;
 }
 
 .container ul, .container ol{
@@ -236,6 +237,7 @@ u{
     border-radius: 10px;
     margin: 4px;
     text-align: center;
+    line-height: 1.5em;
 }
 
 .cards p{
@@ -300,6 +302,7 @@ select{
 
 .normalList{
     margin: 20px 0 20px 30px;
+    line-height: 1.5em;
 }
 
 .datenschutzTabelle{
@@ -360,6 +363,37 @@ select{
     border-radius: 10px;
 }
 
+.fullscreenIMG{
+    width: 70%;
+}
+
+.externLink{
+    vertical-align: middle;
+    width: 25px;
+    margin-left: 3px;
+}
+
+.programmeIcon{
+    vertical-align: middle;
+    width: 40px;
+}
+
+.settings{
+    width: 50%;
+}
+
+.quickAccess{
+    width: 30%;
+}
+
+.subtitle{
+    margin-bottom: 10px;
+    color: rgb(180, 180, 180);
+    border-top: 1px solid rgb(50, 50, 50);
+    padding-top: 2px;
+    width: 50%;
+}
+
 @media(max-width: 600px) {
     .calculator, .timer, #guessNumber{
         width: 100%;
@@ -411,5 +445,13 @@ select{
 
     #dialogContent{
         left: 5%;
+    }
+
+    .container{
+        padding: 10px;
+    }
+
+    .settings, .quickAccess, .fullscreenIMG{
+        width: 100%;
     }
 }

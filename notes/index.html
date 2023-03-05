@@ -17,6 +17,17 @@
         <h1><img src="../img/info.svg" alt="" class="headlineIcon"> Schreibe hier deine Notizen hinein. Du kannst sie später auch bearbeiten.</h1>
         <textarea class="toggleUnvisible" name="" id="newNote" placeholder="Notiz hier einfügen ..."></textarea>
         <br>
+        <div id="palette" class="toggleUnvisible">
+            <img src="../img/bold.svg" title="Fett" class="button" onclick="specialStyle('b')">
+            <img src="../img/italic.svg" title="Kursiv" class="button" onclick="specialStyle('i')">
+            <img src="../img/underlined.svg" title="Unterstrichen" class="button" onclick="specialStyle('u')">
+            <img src="../img/h1.svg" title="Überschrift 1" class="button" onclick="specialStyle('h1')">
+            <img src="../img/h2.svg" title="Überschrift 2" class="button" onclick="specialStyle('h2')">
+            <img src="../img/h3.svg" title="Überschrift 3" class="button" onclick="specialStyle('h3')">
+            <img src="../img/sup.svg" title="Hochstellen" class="button" onclick="specialStyle('sup')">
+            <img src="../img/sub.svg" title="Tiefstellen" class="button" onclick="specialStyle('sub')">
+        </div>
+        <br>
         <img src="../img/add.svg" alt="" class="button" id="fieldOpener" title="Neue Notiz" onclick="noteField()">
         <img src="../img/save.svg" alt="" class="button toggleUnvisible" id="save" title="Notiz hinzufügen" onclick="addNote()">
         <img src="../img/close.svg" alt="" class="button toggleUnvisible" id="cancel" title="Abbrechen">

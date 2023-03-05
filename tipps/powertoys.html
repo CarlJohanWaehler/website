@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Microsoft PowerToys</title>
+    <link rel="shortcut icon" href="../img/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <h1><img class="programmeIcon" src="../img/powertoys_logo.png" alt=""> Detaillierte Vorstellung der Microsoft
+            PowerToys
+        </h1>
+        <h1><img src="../img/info.svg" alt="" class="headlineIcon"> Inhaltsverzeichnis</h1>
+        <ul class="normalList">
+            <li><a href="#installation">Installation der PowerToys (Vorstellung 3 verschiedener Wege)</a></li>
+            <li><a href="#firstSteps">Erste Schritte</a></li>
+            <li><a href="#generalSettings">Allgemeine Einstellungen</a></li>
+            <li><a href="#quickAccess">Der neue Schnellzugriff</a></li>
+            <li><a href="#alwaysOnTop">Immer im Vordergrund: Fokussiert arbeiten</a></li>
+            <li><a href="#awake">Aufwachen: Lasse den Bildschirm eingeschaltet</a></li>
+            <li><a href="#colorPicker">Farbwähler: Toll für Künster und Entwickler</a></li>
+            <li><a href="#fancyZones">FancyZones: Multitasking leicht gemacht</a></li>
+            <li><a href="#filelocksmith">File Locksmith: Kein Problem mehr beim Löschen von Dateien</a></li>
+            <li><a href="#explorerAddOns">Datei-Explorer-Add-Ons: Dateivorschau leicht gemacht</a></li>
+            <li><a href="#hostseditor">Hostdatei-Editor: Die Hostsdatei bequem und einfach bearbeiten</a></li>
+            <li><a href="#imageresizer">Bildgrößenänderung: Ganz einfach die Größe von Bildern ändern</a></li>
+            <li><a href="#keyboardManager">Tastatur-Manager: Tastenkombinationen nach den eigenen Wünschen anpassen</a>
+            </li>
+            <li><a href="#mouseTools">Mausdientprogramme: 4 hilreiche Tools</a></li>
+            <li><a href="#onlyText">Als Nur-Text einfügen: Nervige Formatierungen in Dokumenten beseitigen</a></li>
+            <li><a href="#rename">PowerRename: Mehrere Dateien auf einmal umbenennen</a></li>
+            <li><a href="#run">PowerToys Run: Schnell Aktionen starten</a></li>
+            <li><a href="#akzentuierung">Schnelle Akzentuierung: Ganz einfach Akzentzeichen einfügen</a></li>
+            <li><a href="#ruler">Bildschirmlineal: Ganz einfach Elemente ausmessen</a></li>
+            <li><a href="#hotkeyOverview">Tastenkombinationsübersicht: Alle Windows-Tastenkombinationen anzeigen</a>
+            </li>
+            <li><a href="#textextraktor">Textextraktor: Text von beliebiger Stelle kopieren</a></li>
+            <li><a href="#mute">Videokonferenz-Stummschaltung: Mikrofon und Kamera per Tastenkombination systemweit
+                    stummschalten</a></li>
+        </ul>
+        <img class="fullscreenIMG" src="../img/powertoys_overview.png" alt="">
+        <h1 id="installation"><img class="headlineIcon" src="../img/download.svg" alt=""> Installation der PowerToys
+            (Vorstellung 3
+            verschiedener Wege)</h1>
+        <div class="container">
+            Um die PowerToys installieren zu können, sind laut Microsoft folgende Anforderungen erforderlich:
+            <ul>
+                <li><b>Betriebssystem:</b> Windows 11 (alle Versionen) oder Windows 10 v2004 (19041) oder neuer</li>
+                <li><b>Systemarchitektur:</b> x64 oder Arm64</li>
+            </ul>
+            Um sicherzustellen, dass die Voraussetzungen erfüllt sind, drücke <b>Windows + Pause</b> auf der Tastatur.
+            Dann sind die Angaben "Systemtyp" und alle unter "Windows-Spezifikationen" (Das heißt unter Windows 11 so,
+            unter Windows 10 heißen sie womöglich anders).
+            <br>Das Installationsprogramm installiert nicht nur die PowerToys selbst, sondern auch verschiedene
+            Runtimes:
+            <ul>
+                <li>.NET 6.0.8 Desktop Runtime oder eine höhere 6.0.x-Runtime</li>
+                <li>Microsoft Edge WebView2 Runtime-Bootstrapper (installiert immer die neueste verfügbare Version)</li>
+                <li>Installationsprogramm für Microsoft Visual C++ Redistributable (installiert immer die neueste
+                    verfügbare Version)</li>
+            </ul>
+        </div>
+        <h2>a) Microsoft Store</h2>
+        <div class="container">
+            <ol>
+                <li>Öffne den Microsoft Store.</li>
+                <li>Gib in das Suchfeld "powertoys" ein. Klicke dann auf den Eintrag "Microsoft PowerToys".</li>
+                <li>Klicke nun auf den Button "Installieren" und warte bis der Prozess abgeschlossen ist.</li>
+            </ol>
+        </div>
+        <h2>b) WinGet (Komandozeile)</h2>
+        <div class="container">
+            <ol>
+                <li>Öffne die Komandozeile deiner Wahl</li>
+                <li>Gib dort dann folgendes ohne die Anführungszeichen ein: "winget install Microsoft.PowerToys -s
+                    winget"</li>
+                <li>Das Programm wird jetzt auf deinem Computer installiert.</li>
+            </ol>
+        </div>
+        <h2>c) GitHub</h2>
+        <div class="container">
+            <ol>
+                <li>Öffne das GitHub-Repository, welches du <a href="https://github.com/microsoft/PowerToys"
+                        target="_blank" rel="noopener noreferrer">hier<img class="externLink" src="../img/extern.svg"
+                            alt=""></a> findest.</li>
+                <li>Scrolle nun runter, bis du die Überschrift "Installing and running Microsoft PowerToys" findest.
+                    Dort gibt es wiederum einen Abschnitt "Via GitHub with EXE [Recommended]". Dort klickst du in der
+                    Regel auf den blauen Schriftzug "PowerToysSetup-0.??.?-x64.exe" aus. Wenn du einen Arm64-Prozessor
+                    besitzt, wähst du stattdessen den Schriftzug "PowerToysSetup-0.??-?-arm64.exe" aus. Die Fragezeichen
+                    stehen für Nummern, welche varrieren können. Das ist die Versionsnummer.</li>
+                <li>Klicke dann auf die Setup-Datei und folge den Anweisungen innerhalb des Setups. Die Installation
+                    funktioniert ganz normal wie bei anderen Programmen.</li>
+            </ol>
+        </div>
+        <h1 id="firstSteps"><img src="../img/info.svg" alt="" class="headlineIcon"> Erste Schritte</h1>
+        <div class="container">Wenn du die PowerToys das erste Mal startest, erhälst du einen Willkommensbildschirm. Du
+            kannst dich durch die einzelnen Menüpunkte klicken und die Vorschau-Animationen und die kurzen
+            Beschreibungen der einzelnen Tools anschauen. Bist du damit fertig oder hast kein Interesse, klicke auf den
+            Button "Einstellungen öffnen."</div>
+        <h1 id="generalSettings"><img src="../img/settings.svg" alt="" class="headlineIcon"> Allgemeine Einstellungen
+        </h1>
+        <div class="container">In den Einstellungen unter der Rubrik "Allgemein" gibt es verschiedene Optionen, die ich
+            dir empfehle zu aktivieren:
+            <ul>
+                <li><b>Updates automatisch herunterladen:</b> Das solltest du aktivieren, denn dann musst du nicht
+                    manuell nach
+                    neuen Versionen schauen. Die neuen Versionen beheben nervige Bugs, bringen Verbesserungen an
+                    vorhandenen Tools oder fügen neu hinzu.</li>
+                <li><b>Immer als Administrator ausführen:</b> Wenn du die PowerToys als Administrator ausführst, stehen
+                    dir
+                    mehr Funktionen zur Verfügung. Damit du den Administrator-Modus nicht immer manuell ausführen musst
+                    (bspw. wenn eine Fehlermeldung durch das Programm wegen fehlender Zugriffsrechte erscheint), kannst
+                    du noch auswählen, dass du die PowerToys immer als Administrator ausführst. Dann musst du auch nicht
+                    immer wieder die Meldung der Benutzerkontensteuerung akzeptieren.</li>
+                <li><b>Beim Start ausführen:</b> Die Nutzung der PowerToys soll Arbeit erleichtern. Dafür muss man sie
+                    auch
+                    schnell aufrufen können. Wenn sie beim Start geladen werden, kannst du sie auch gleich nutzen und
+                    musst sie nicht erst noch starten.</li>
+            </ul>
+            Die Einstellungen sollten meiner Meinung nach also so aussehen:
+            <br><img class="settings" src="../img/powertoys_general_settings.png" alt="">
+            <br>Ganz unten siehst du eine relativ neue Funktion: Das Sichern und Wiederherstellen von Einstellungen.
+            Damit kannst du bei Neuinstallationen oder bei Installationen auf anderen Windows-Computern die
+            Einstellungen übernehmen. Das ist hilfreich, da es mittlerweile 18 Tools gibt und für die einzelnen Tools
+            noch einmal verschiedene Einstellungen vorgenommen werden können. So kann man die PowerToys ganz nach seinen
+            Wünschen konfigurieren und muss keine Angst haben, dass die Einstellungen verloren gehen. Voraussetzung ist
+            nur, dass man die Sicherungsdatei, die standardmäßig im Ordner ../Documents/PowerToys/Backup angelegt wird,
+            besitzt.
+        </div>
+        <h1 id="quickAccess"> Der neue Schnellzugriff</h1>
+        <img src="../img/powertoys_quickAccess.png" alt="" class="quickAccess">
+        <p class="subtitle">Mithilfe des Schnellzugriffs muss man sich die Tastenkombinationen nicht mehr merken und
+            kann die Tools ein- und ausschalten, ohne die Einstellungen zu öffnen.</p>
+        <div class="container">Erst Anfang Februar 2023 wurde den PowerToys ein Schnellzugriff hinzugefügt. Diesen
+            erreicht man, wenn man in der rechten Ecke der Taskleiste (Systray) das PowerToys-Symbol anklickt. Oft ist
+            es aber unter "^" versteckt. Von dort kann man auf die meisten Tools zugreifen, ohne dass man sich die
+            Tastenkombinationen merken muss. Apropos Tastenkombinationen: Wenn man mit der Maus über ein Symbol fährt,
+            wird ein Tooltip mit der Tastenkombination zum Aufruf angezeigt. Die Tastenkombinationen kann man übrigens
+            auch alle nach Belieben ändern. Es werden in der Übersicht aber nur die
+            aktivierten PowerToys angezeigt. Klickt man auf den Button "Mehr" kann man die einzelnen PowerToys ein- und
+            ausschalten.
+        </div>
+        <h1 id="alwaysOnTop">Immer im Vordergrund: Fokusiert arbeiten</h1>
+        <img src="../img/powertoys_always_top.png" alt="" class="settings">
+        <p class="subtitle">Immer im Vordergrund pinnt ein Fenster im Vordergrund an. In den Einstellungen können viele
+            Dinge personaliert werden (bspw. kann der Sound abgeschaltet werden).</p>
+        <div class="container">Man will im Windows-Taschenrechner eine komplizierte Rechnung abschreiben, aber man will
+            nicht unbedingt den Bildschirm aufteilen? Dann hilft das Tool "Immer im Vordergrund", denn damit kann man
+            mithilfe der Tastenkombination <b>Strg + Windows + T</b> ein Fenster im Vordergrund fixieren.
+            <br>Dieses angepinnte Fenster kann man dann auf dem Bildschirm verschieben oder man kann seine Größe ändern.
+            Es bleibt nur immer im Vordergrund, das heißt: Man kann andere Programme anklicken, aber dort wird die Sicht
+            immer vom angepinnten Fenster verdeckt. Die Nutzung erfolgt so:
+            <ol>
+                <li>Öffne das Fenster, welches fixiert werden soll.</li>
+                <li>Drücke die Tastenkombination <b>Strg + Windows + T</b>. Man hört dann einen optional ausschaltbaren
+                    Sound und man sieht einen Rahmen um das Fenster.</li>
+                <li>Du kannst nun ein anderes Programm anklicken oder öffnen und das fixierte Fenster bleibt im
+                    Vordergrund, während das andere geöffnete sich im Hintergrund befindet.</li>
+                <li>Willst du die Fixierung lösen, drückst du wieder die Tastenkombination.</li>
+            </ol>
+        </div>
+        <h1 id="awake">Aufwachen: Lasse den Bildschirm eingeschaltet</h1>
+        <img src="../img/powertoys_awake.png" alt="" class="settings">
+        <p class="subtitle">Lege selbst fest, wann der Bildschirm ausgeschaltet wird.</p>
+        <div class="container">Du willst den Bildschirm immer nach verschiedenen Zeiten ausschalten, ohne immer die
+            Einstellungen zu ändern oder in den Einstellungen ist nicht die passende Option dabei? Da hilft das Tool
+            "Aufwachen". Damit können individuelle Zeiten festgelegt werden. Es gibt insgesamt 3 verschiedene Modi:
+            <ul>
+                <li><b>Den ausgewählten Energiesparplan weiterhin verwenden:</b> Es wird weiterhin der Energiesparplan
+                    von
+                    Windows verwendet. Es ändert sich also nichts.</li>
+                <li><b>Unbegrenzt aktiviert halten:</b> Der Computer wechselt nicht automatisch in den Energiesparmodus.
+                    Diese
+                    Einstellung gilt bis zur Deaktivierung.</li>
+                <li><b>Vorübergehend aktiviert halten:</b> Der Computer bleibt so lange wach, bis die eingestellte Zeit
+                    abgelaufen ist.</li>
+            </ul>
+            Wenn dieses Tool aktiviert ist, erscheint im Systray eine blaue Kaffeetasse. Bei einem Rechtsklick gibt es 2
+            Optionen, welche den Weg in die Einstellungen ersparen:
+            <ul>
+                <li><b>Mode:</b> Hier kann der Modus verändert werden. Es gibt hier aber keine individuellen Zeiten.
+                </li>
+                <li><b>Keep screen on:</b> Der Bildschirm schaltet sich nicht von allein aus (Hinweis: Das Ausschalten
+                    des
+                    Bildschirms und der Stand-by-Modus sind in Windows 2 verschiedene Dinge)</li>
+            </ul>
+        </div>
+        <h1 id="colorPicker">Farbwähler: Toll für Künster und Entwickler</h1>
+        <img src="../img/powertoys_colorpicker.png" alt="" class="quickAccess">
+        <p class="subtitle">Dieses Tool kann von Elementen die Farbe genau bestimmen. Diese Farbe kann man dann in
+            Farbpaletten für Gemälde oder für UIs verwenden.</p>
+        <div class="container">Du suchst für dein Programm, Text oder Bild eine passende Farbe und dann findest du in
+            Windows, auf Bildern oder im Web eine schöne Farbe, die du unbedingt identisch kopieren möchtest? Dann hilft
+            dir das Tool "Farbwähler". Damit kann man im ganzen System eine Farbe heraussuchen (optional sogar mit Name)
+            und diese dann in die Farbpalette einfügen. Das Tool verwendet man wie folgt:
+            <ol>
+                <li>Drücke die Tastenkombination <b>Windows + Shift + C</b>.</li>
+                <li>An deinem Mauszeiger ist jetzt ein kleines Fenster eingeblendet. Dort sieht man die Farbe und den
+                    Code im eingestellten Farbformat. Standardmäßig wird das HEX-Format verwendet, aber eine Umstellung
+                    auf RGB oder HSL und viele weiteren Formate (auch selbst erstellte) ist möglich.</li>
+                <li>Wenn dir eine Farbe gefällt, mache einen Mausklick.</li>
+                <li>Dadurch öffnet sich ein Editor (siehe Bild) und die Farbe in dem eingestellten Farbformat wird in
+                    die Zwischenablage gespeichert. Dort siehst du auch weitere Farbformate, die du in den Einstellungen
+                    aktivieren oder deaktivieren kannst. Die anderen Farbformate kannst du ebenfalls kopieren.</li>
+            </ol>
+        </div>
+        <h1 id="fancyZones">FancyZones: Multitasking leicht gemacht</h1>
+        <img src="../img/powertoys_fancyzones.png" alt="" class="fullscreenIMG">
+        <p class="subtitle">Mit dem Layout Manager der FancyZones lassen sich die einzelnen Bereiche des Bildschirms für
+            die Fenster anpassen.</p>
+        <div class="container">Es gibt Situationen, in welchen man mehrere Fenster auf seinem Bildschirm anordnen kann.
+            In Windows 11 gibt es bereits die Snap Layouts (aufrufbar über <b>Windows + Z</b> oder Drüberfahren über das
+            Maximieren-Symbol), mit denen man seine Fenster nach 4 - 6 Vorlagen anordnen kann. In Windows 10 gibt es
+            diese Funktion nicht. Für diese und unzufriedene Windows 11 Nutzer gibt es Gott sei Dank die "FancyZones".
+            Mit diesen kann man bis zum 128 Zonen auf seinem Bildschirm bestimmen, auf denen man seine Fenster anordnen
+            kann (128 sind zwar möglich, aber ein übersichtliches Arbeiten ist damit eigentlich nicht möglich).
+            <br>Für die Nutzung kann man einfach ein Fenster verschieben und dabei die <b>Shift-Taste</b> gedrückt
+            halten. Es erscheinen dann die FancyZones und man kann das Fenster in die gewünschte Zone verschieben.
+            <br>Natürlich ist es auch möglich, eigene Vorlagen zu erstellen oder die schon vorhandenen anzupassen. Dazu
+            geht man in den Einstellungen unter der Rubrik "FancyZones" auf "Layout-Manager starten".
+        </div>
+        <h1 id="filelocksmith">File Locksmith: Kein Problem mehr beim Löschen von Dateien</h1>
+        <img src="../img/powertoys_locksmith.png" alt="" class="settings">
+        <p class="subtitle">Ein nervendes Problem, das jeder kennt: Man kann Dateien nicht löschen, weil sie verwendet
+            werden. Jetzt gibt es dafür Abhilfe.</p>
+        <div class="container">Wer kennt das Problem nicht? Man möchte schnell eine Datei umbenennen oder löschen und
+            dann kommt diese nervige Meldung, dass die Datei verwendet wird. Es gibt viele Fälle, wo man ein geöffnetes
+            Programm entdeckt und dann schließen muss. Aber was ist, wenn es danach immer noch nicht geht oder man das
+            Problem nicht entdeckt? Die Entwickler der PowerToys haben das erkannt und haben mit dem Tool "File
+            Locksmith" mit der Version 0.64 eine Lösung geschaffen, welche anzeigt, welche Programme eine Datei
+            verwenden. Man kann dann
+            einfach die Prozesse beenden und dann die Datei umbenennen oder löschen.
+            <br>Wenn man auf das Problem stößt, dass sich eine Datei nicht löschen oder umbenennen lässt, verwendet man
+            von nun an folgende Schrittfolge:
+            <ol>
+                <li>Mache einen Rechtsklick auf die betroffene Datei.</li>
+                <li>Klicke gegenenfalls auf "Weitere Optionen anzeigen". Klicke nun auf "Was sperrt diese Datei?".</li>
+                <li>Es öffnet sich nun ein Fenster. Dort siehst du das Programm, welches
+                    die Datei sperrt. Du kannst auf diesen Eintrag klicken und siehst ein paar Einträge, welche dich
+                    interessieren könnten.</li>
+                <li>Hast du daran keine Interesse oder bist du damit fertig, klicke auf den Button "Task beenden". Es
+                    ist natürlich auch möglich. den Prozess über den Task-Manager zu beenden.</li>
+                <li>Die Datei ist nun wieder freigegeben und lässt sich löschen bzw. umbenennen.</li>
+            </ol>
+        </div>
+        <h1 id="explorerAddOns">Datei-Explorer-Add-Ons: Dateivorschau leicht gemacht</h1>
+        <img src="../img/powertoys_explorer_addons.png" alt="" class="settings">
+        <p class="subtitle">Es lassen sich verschiedene Add-Ons aktivieren, womit der Dateiinhalt im Vorschaubereich und
+            in den Thumbnails angezeigt werden kann.</p>
+        <div class="container">Unscheinbar, aber effektiv sind die Add-Ons für den Datei-Explorer. Damit lassen sich
+            einerseits für verschiedene Dateitypen (zurzeit SVG-Grafiken, Markdown-Dateien, Quellcodedateien, PDFs und
+            .gcode-Dateien) Vorschaubilder für den Vorschaubereich im Windows-Explorer anzeigen. Den Vorschaubereich
+            kann man mit der Tastenkombination <b>Alt + P</b> bei Bedarf aktivieren. Ich als Entwickler finde die
+            Vorschau für die Quellcodedateien interessant: Hier bekommt man den Code mit den exakten Zeilen und
+            Zeilennummern angezeigt und kann darin sogar Code markieren und kopieren, aber nicht einfügen. In den
+            Einstellungen lassen sich die einzelnen Dateitypen aktivieren und deaktivieren.
+            <br>Es lassen sich auch Miniaturansichten für weitere Dateitypen aktivieren. Man hat dies beispielsweise
+            schon bei Bildern, ohne die PowerToys installiert zu haben (man sieht hier das Bild sehr verkleinert als
+            Symbol für die Datei). Um die Miniaturansichten zu sehen, muss man unten rechts im Explorer auf den rechten
+            Button mit dem Text "Zeigt Elemente mit großer Miniaturansicht an. (Strg+Umschalt+2)" klicken.
+        </div>
+        <h1 id="hostseditor">Hostdatei-Editor: Bequem und einfach die Hostsdatei bearbeiten</h1>
+        <img src="../img/powertoys_hosteditor.png" alt="" class="settings">
+        <p class="subtitle">So sieht die Hostsdatei in den PowerToys standardmäßig aus.</p>
+        <div class="container">Die Datei "hosts" ohne Dateierweiterung, welche sich im Ordner
+            "C:\Windows\System32\drivers\etc" befindet, ist ein Relikt aus der Anfangszeit des Internets. Sie sorgte
+            damals für eine Übersetzung von Domain-Namen (z.B. www.google.com) in die entsprechende IP-Adressen. Heute
+            braucht man die Datei nicht mehr und sie ist normalerweise leer, aber sie erfüllt trotzdem noch nützliche
+            Funktionen: Man kann damit den Zugriff auf bestimmte Websites blockieren, aber Bösewichte nutzen diese
+            Datei, um eingenommene Computer beim Zugriff auf harmlose Adressen auf gefährliche Seiten umzuleiten.
+            <br>Damit man die Datei nicht lange suchen muss, hat Microsoft mit der Version 0.64 einen Editor eingebaut,
+            mit welchem man die Datei bearbeiten kann. Das geht wie folgt:
+            <ol>
+                <li>Klicke in den Einstellungen auf "Hostsdatei-Editor" und dann auf "Hostsdatei-Editor starten".</li>
+                <li>Bestätige die Warnung.</li>
+                <li>Hier kannst du nun die Einträge aktivieren oder deaktivieren, neue hinzufügen oder löschen. <b>Sei
+                        dir aber bewusst, was du tust, denn man kann hier viel Blödsinn anstellen. Am besten, du führst
+                        Änderungen nur bei Notwendigkeit durch und lässt sonst alles auf Werkseinstellung (siehe
+                        Screenshot).</b></li>
+            </ol>
+        </div>
+        <h1 id="imageresizer">Bildgrößenänderung: Ganz einfach die Größe von Bilder ändern</h1>
+        <img src="../img/powertoys_image_size.png" alt="" class="quickAccess">
+        <p class="subtitle">Mit diesem Tool ändert man die Größe mehrerer Bilder in einem Rutsch.</p>
+        <div class="container">Schnell mehrere Bilder für E-Mails verkleinern? Das ist mit dem Tool "Bildgrößenänderung"
+            problemlos möglich. Hiermit kann man mehrere Bilder auf einmal auf dieselben Maße verkleinern / vergrößern.
+            <br>Man nutzt das Tool wie folgt:
+            <ol>
+                <li>Wähle die Bilder aus, von denen du die Größe ändern willst.</li>
+                <li>Wähle nun eine Vorgabe aus (die Maße der Vorgabe werden sogar angezeigt) oder gib benutzerdefinierte
+                    Maße ein (hier kann man auch andere Einheiten neben Pixel auswählen).</li>
+                <li>Klicke dann auf Größe ändern. Es werden dann, wenn nicht anders von dir eingestellt, Kopien
+                    angelegt. Diese haben den originalen Dateinamen mit dem Zusatz der ausgewählten Größe, bspw.
+                    "(Mittel)".</li>
+            </ol>
+            Hier folgen nun noch ein paar Hinweise:
+            <ul>
+                <li>Du kannst in den Einstellungen auch die Vorlagen anpassen und weitere anlegen.</li>
+                <li>Wenn du die Option "Größe des Originalbilds ändern (keine Kopien erstellen)" auswählst, werden die
+                    Originalbilder ersetzt.</li>
+            </ul>
+        </div>
+        <h1 id="keyboardManager">Tastatur-Manager: Tastenkombinationen nach den eigenen Wünschen anpassen</h1>
+        <img src="../img/powertoys_keyboardManager.png" alt="" class="settings">
+        <p class="subtitle">Mit diesem Tool kann man die Tastenkombinationen für bestimmte Aktionen ändern.</p>
+        <div class="container">Dieses Tool erlaubt es, Tasten und Tastenkombinationen zu ändern. In den Einstellungen
+            kann man unter "Tastatur-Manager" entsprechende Assistenten aufrufen. Um Tastenkombinationen zu ändern,
+            folge bitte den Anweisungen des Assistenten.</div>
+        <h1 id="mouseTools">Mausdientprogramme: 4 hilfreiche Tools</h1>
+        <img src="../img/powertoys_mousetools.png" alt="" class="settings">
+        <p class="subtitle">Füge deiner Maus Powerfunktionen hinzu.</p>
+        <div class="container">Bei den "Mausdientprogrammen" handelt es sich um eine Sammlung von Werkzeugen für die
+            Maus. Folgende gibt es:
+            <ul>
+                <li><b>Meine Maus suchen:</b> Wenn man seine Maus auf dem Bildschirm sucht, kann man einfach zweimal die
+                    <b>Strg-Taste</b> drücken. Es dunkelt sich daraufhin der Bildschirm ab und um die Maus wird ein
+                    heller Kreis angezeigt. Dieser Zustand bleibt solange erhalten, bis man mit der Maus einen Klick
+                    tätigt, erneut die Strg-Taste drückt oder die Maus bewegt. Apropos Bewegung: Bei Bewegungen der Maus
+                    verschiebt sich der helle Bereich mit, vor dem Verschwinden der Hervorhebung.
+                </li>
+                <li><b>Mausmarker:</b> Hilfreich für YoutTube-Videos ist das Tool Mausmarker, welches man mit der
+                    Tastenkombination <b>Windows + Shift + H</b> aufrufen kann. Damit wird jeder Mausklick
+                    hervorgehoben, indem um die Klickstelle ein gelber Kreis erscheint.
+                </li>
+                <li><b>Maussprung:</b> Wenn man mehrere Bildschirme angeschlossen hat oder allgemein einen großen
+                    Bildschirm hat, müsste man mit seiner Maus theoretisch große Bewegungen machen. Dagegen hilft das
+                    mit Version 0.68 eingeführte Tool "Maussprung", aufrufbar über die Tastenkombination <b>Windows +
+                        Shift + D</b>. Es erscheint dann ein Fenster mit einem verkleinerten Desktop. Dort kann man auf
+                    die gewünschte Stelle klicken und der Mauszeiger befindet sich dann an dieser Position. Dabei wird
+                    dann auch das Popup-Fenster geschlossen.</li>
+                <li><b>Mauszeiger "Fadenkreuz":</b> Mit der Tastenkombination <b>Strg + Alt + P</b> kann man ein
+                    Fadenkreuz um die Maus aktivieren und auch wieder deaktivieren, wo der Mauszeiger den Mittelpunkt
+                    darstellt. Das Tool ist für Sehbehinderte und für Leute, die schauen wollen, ob etwas gerade ist
+                    (für Grafiker und Programmierer geeignet).</li>
+            </ul>
+        </div>
+        <h1 id="onlyText">Als Nur-Text einfügen: Nervige Formatierungen in Dokumenten beseitigen</h1>
+        <img src="../img/powertoys_unformated_text.png" alt="" class="settings">
+        <p class="subtitle">Mit diesem Tool kann man unformatierten Text in ein Dokument einfügen.</p>
+        <div class="container">Kennst du das auch: Du willst Text aus dem Internet in ein Dokument einfügen und dann hat
+            der Text eine ganz andere Formatierung? Textprogramme haben zwar Optionen, mit denen man unformatierten Text
+            einfügen kann, aber es geht jetzt noch schneller. Drücke einfach <b>Strg + Windows + V</b>, um
+            unformatierten Text einzufügen. Dabei ersetzt dieser unformatierte Text auch den formatierten aus der
+            Zwischenablage, das heißt man kann für weiteres Einfügen dieses Textes normal Strg + V drücken.</div>
+        <h1 id="rename">PowerRename: Mehrere Dateien auf einmal umbenennen</h1>
+        <img src="../img/powertoys_rename.png" alt="" class="fullscreenIMG">
+        <p class="subtitle">PowerRename benennt mehrere Dateien in einem Zug um.</p>
+        <div class="container">Willst du mehrere Dateien auf einmal nach demselben Muster umbenennen? Bisher war es,
+            dass man das für jede Datei einzeln hätte machen müssen, was sehr lange dauert. Mit "PowerRename" gibt es
+            jetzt eine Abhilfe. Damit kann man gleiche Merkmale in Dateinamen für mehrere Dateien auf einmal ändern. So
+            verwendet man das Tool:
+            <ol>
+                <li>Wähle die Dateien aus, die du umbenennen willst. Du kannst auch einen Ordner auswählen.</li>
+                <li>Mache einen Rechtsklick und klicke auf "PowerRename". Es öffnet sich dann ein Fenster.</li>
+                <li>Gib in das obere Feld ein, was du ersetzen willst (im Beispiel "Bild ").</li>
+                <li>In das untere Feld gibst du nun ein, durch was das Gesuchte ersetzt werden soll (im Beispiel
+                    "IMG_"). Wenn der gesuchte Teil entfernt werden soll, lass das untere Feld frei.</li>
+            </ol>
+            Du kannst auch die Suche durch die verschiedenen Kontrollkästchen und Buttons eingrenzen.
+        </div>
+        <h1 id="run">PowerToys Run: Schnell Aktionen starten</h1>
+        <img src="../img/powertoys_run.png" alt="" class="settings">
+        <p class="subtitle">Mit diesem Tool kann man nicht nur Programme starten, sondern auch noch andere Aktionen
+            ausführen.</p>
+        <div class="container">In Windows gibt es ja schon die Suche. Diese ist aber manchmal langsam und ist eng mit
+            Edge und Bing verbunden, was nicht jedem gefällt. Die PowerToys enthalten ein Werkzeug, welches auch Suchen
+            durchführen kann. Erreichbar ist es über <b>Alt + Leertaste</b>. Man kann dann verschiedene Dinge suchen,
+            wie Dateien und Programme, aber auch Websites und auch kann im Internet gesucht (Websites und Suchanfragen
+            gehen über den Standardbrowser und die eingestellte Suchmaschine). Was auch geht ist das Ausführen von
+            Rechnungen und Aktionen wie Herunterfahren, Neustarten oder Sperren.</div>
+        <h1 id="akzentuierung">Schnelle Akzentuierung: Ganz einfach Akzentzeichen einfügen</h1>
+        <img src="../img/powertoys_akzentuierung.png" alt="" class="fullscreenIMG">
+        <p class="subtitle">Dieses Tool erlaubt das schnelle Schreiben von Akzenten, ohne dass man danach im Internet
+            suchen muss.</p>
+        <div class="container">Wenn man Akzentzeichen brauchte, musste man bislang immer im Internet danach suchen. Das
+            Tool "Schnelle Akzentuierung" schafft jetzt Abhilfe. Damit kann man ganz einfach Akzentzeichen einfügen. So
+            funktioniert es:
+            <ol>
+                <li>Drücke in einem beliebigen Textfeld den gewünschten Buchstabe und gleichzeitig die
+                    Aktivierungstaste. Das ist standardmäßig <b>Links</b>, <b>Rechts</b> oder die <b>Leertaste</b>.</li>
+                <li>Halte die Buchstaben-Taste gedrückt. Mit der gedrückten Aktivierungstaste kannst du nun das
+                    entsprechende Akzentzeichen auswählen. Wenn du das gewünschte Zeichen ausgewählt hast, lasse die
+                    Buchstaben-Taste los.</li>
+            </ol>
+        </div>
+        <h1 id="ruler">Bildschirmlineal: Ganz einfach Elemente ausmessen</h1>
+        <img src="../img/powertoys_lineal.png" alt="" class="settings">
+        <p class="subtitle">Hier wurde ein Bereich gezeichnet und man sieht die entsprechenden Maße. Damit können ganz
+            einfach Bilder vermessen werden.</p>
+        <div class="container">Das Bildschirmlineal lässt sich über die Tastenkombination <b>Windows + Shift + M</b>
+            aufrufen und bietet dann 4 Modi, die man in einem Popup-Fenster auswählen kann:
+            <ul>
+                <li><b>Bounds (Auswahlmodus):</b> Nach einem Klick darauf kannst du einen rechteckigen Bereich zeichen
+                    und siehst dessen Maße in Pixeln.</li>
+                <li><b>Spacing (Fadenkreuz):</b> Damit misst man gleichzeitig horizontale und vertikale Abstände.</li>
+                <li><b>Horizontal spacing (horizontaler Abstand):</b> Damit misst man den horizontalen Abstand.</li>
+                <li><b>Vertical spacing (vertikaler Abstand):</b> Damit kann man den vertikalen Abstand messen.</li>
+            </ul>
+            Es ist dabei sehr toll, dass das Bildschirmlineal automatisch Objekte, wie Ränder, Kanten, Schaltflächen und
+            Strukturen erkennt. Das spart die Nutzung des "Bounds"-Modus.
+            <br>Wenn ein Wert angezeigt wird und man dann einen Mausklick tätigt, werden die Maße in die Zwischenablage
+            kopiert.
+        </div>
+        <h1 id="hotkeyOverview">Tastenkombinationsübersicht: Alle Windows-Tastenkombinationen anzeigen</h1>
+        <img src="../img/powertoys_hotkeys.png" alt="" class="fullscreenIMG">
+        <p class="subtitle">Mit diesem Tool kannst du einige Tastenkombinationen mit der Windows-Taste anzeigen lassen.
+        </p>
+        <div class="container">In Windows gibt es sehr viele Tastenkombinationen, darunter auch viele mit der
+            Windows-Taste. Man kann sich aber nicht alle merken. Deshalb gibt es das Tool "Tastenkombinationsübersicht",
+            mit denen man zumindest die meisten Kombinationen einsehen kann. Man muss sich dann nur noch eine einzige
+            Tastenkombination merken:
+            <ul>
+                <li>Standardmäßig ist das <b>Windows + Shift + #</b>. Schließen kann man das dann erscheinende Fenster
+                    über <b>Esc</b>. Ob diese Option aktiviert ist, wenn im Bereich "Tastenkombination" unter
+                    "Aktivierungsmethode" die Option "Angepasste Tastenkombination" ausgewählt ist.</li>
+                <li>Sehr praktisch ist es jedoch, die Option "Windows-Taste gedrückt halten" auswählen. Dabei muss man
+                    die <b>Windows-Taste</b> länger gedrückt halten. Das Fenster verschwindet, wenn man die
+                    Windows-Taste wieder loslässt. Diese Option ist dahingehend interessant, dass man dann einfach eine
+                    Übersicht mit den Tastenkombinationen sieht, wenn man die Windows-Taste drückt und einem die
+                    weiteren Tasten nicht einfallen.</li>
+            </ul>
+        </div>
+        <h1 id="textextraktor">Textextraktor: Text von beliebiger Stelle kopieren</h1>
+        <img src="../img/powertoys_textextraktor.png" alt="" class="fullscreenIMG">
+        <p class="subtitle">Mithilfe des Textextraktors wurde der Beschreibungstext aus den Einstellungen kopiert und
+            eingefügt.</p>
+        <div class="container">Normalerweise kann man Text nur von Websites und Textdokumenten kopieren. Stell dir nun
+            vor, dass du jeden beliebigen Text auf dem Bildschirm kopieren kannst, damit du ihn nicht abschreiben musst.
+            Du denkst, das ist unmöglich? Doch, mittels des Tools "Textextraktor" kannst du ganz einfach beliebigen Text
+            kopieren und einfügen. So verwendest du das Tool:
+            <ol>
+                <li>Drücke die Tastenkombination <b>Windows + Shift + T</b>. Daraufhin verdunkelt sich der Bildschirm
+                    und die Maus verwandelt sich in ein Fadenkreuz.</li>
+                <li>Ziehe nun einen Rahmen um den zu kopierenden Text und lasse dann los. Der Text wird dann in die
+                    Zwischenablage kopiert.</li>
+                <li>Öffne beispielsweise den Editor wie im Screenshot und füge den Text über <b>Strg + V</b> ein.</li>
+            </ol>
+        </div>
+        <h1 id="mute">Videokonferenz-Stummschaltung: Mikrofon und Kamera per Tastenkombination systemweit stummschalten
+        </h1>
+        <img src="../img/powertoys_mute.png" alt="" class="settings">
+        <p class="subtitle">Die PowerToys erlauben es, die Kamera und das Mikrofon per Tastenkombination
+            stummzuschalten.</p>
+        <div class="container">Während der Corona-Pandemie waren Videokonferenzen sehr gefragt und die Entwickler der
+            PowerToys ließen sich eine Möglichkeit einfallen, schnell Kamera und Mikrofon stummzuschalten. Es wurden das
+            Tool "Videokonferenz-Stummschaltung" entwickelt. Es gibt dabei folgende Tastenkombinationen:
+            <ul>
+                <li><b>Windows + O:</b> Kamera und Mikrofon stummschalten</li>
+                <li><b>Windows + Shift + A:</b> Mikrofon stummschalten</li>
+                <li><b>Windows + Shift + O:</b> Kamera stummschalten</li>
+            </ul>
+            Warum auch immer, haben die Entwickler entschieden, nur noch Fehler zu beheben und das Tool nicht weiter zu
+            verbessern. Das ist eigentlich sehr schade, besonders für Windows 10 Nutzer (in Windows 11 gibt es in der
+            Taskleiste einen Button zum stummschalten des Mikrofons).
+        </div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/menu.js"></script>
+</body>
+
+</html>

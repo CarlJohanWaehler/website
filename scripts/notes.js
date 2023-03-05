@@ -67,7 +67,6 @@ function specialStyle(element) {
         selectionStart = '';
         selectionEnd = '';
     } else {
-        //content = field.value;
         field.value += '<' + element + '></' + element + '>';
         let index = '';
 

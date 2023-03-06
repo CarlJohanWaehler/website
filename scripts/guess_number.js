@@ -11,6 +11,8 @@ let noDifficulty = false;
 let tries = 0;
 let maximum = 0;
 let lastGuess = '';
+const highScoreText = document.getElementById('highscoreText');
+let highScore = localStorage.getItem('highScore');
 const startButton = document.getElementById('startButton');
 numberField.addEventListener('keyup', function (e) {
     if (e.keyCode === 13) {
@@ -93,6 +95,17 @@ function endScreen() {
     numberField.value = '';
     footer.classList.add('disabled');
     winText.innerHTML = `<img class="headlineIcon" src="../img/info.svg"> Du hast gewonnen! Deine benötigten Versuche: ${tries}`;
+    if(highScore === null) {
+        highScoreText.innerHTML = 'Das war dein erster Spieldurchgang. Schaffst du es, beim nächsten Mal weniger Versuche zu benötigen?';
+        localStorage.setItem('highscore', tries);
+    } else if(tries < highScore) {
+        localStorage.setItem('highscore', tries);
+        highScoreText.innerHTML = 'Du hast den Rekord gebrochen! Er liegt jetzt bei ' + tries + ' Versuchen.';
+    } else if(tries > highScore) {
+        highScore = localStorage.getItem('highscore');
+        highScoreText.innerHTML = 'Der Rekord liegt bei ' + highScore + ' Versuchen.';
+    }
+    highScore = localStorage.getItem('highscore');
 }
 
 function newGame() {
@@ -104,4 +117,10 @@ function newGame() {
     newGameDialoge.classList.add('toggleUnvisible');
     tries = 0;
     footer.classList.remove('disabled');
+}
+
+function resetHighscore() {
+    highScoreText.innerHTML = '';
+    localStorage.removeItem('highscore');
+    highScore = null;
 }

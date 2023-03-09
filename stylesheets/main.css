@@ -451,6 +451,7 @@ select{
 
     #dialogContent{
         left: 5%;
+        width: 85%;
     }
 
     .container{

@@ -28,6 +28,10 @@ function lengthChange() {
             result.innerHTML = length.value / 1.609e+6;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value / 304.8;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1e+6;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 1000;
         }
     } else if (lengthUnit1 === 'cm') {
         if (lengthUnit2 === 'mm') {
@@ -44,6 +48,10 @@ function lengthChange() {
             result.innerHTML = length.value / 160900;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value / 30.48;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1e+7;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 10000;
         }
     } else if (lengthUnit1 === 'dm') {
         if (lengthUnit2 === 'mm') {
@@ -60,6 +68,10 @@ function lengthChange() {
             result.innerHTML = length.value / 16090;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value / 3.048;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1e+8;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 100000;
         }
     } else if (lengthUnit1 === 'm') {
         if (lengthUnit2 === 'mm') {
@@ -76,6 +88,10 @@ function lengthChange() {
             result.innerHTML = length.value / 1609;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value * 3.281;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1e+9;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 1e+6;
         }
     } else if (lengthUnit1 === 'km') {
         if (lengthUnit2 === 'mm') {
@@ -92,6 +108,10 @@ function lengthChange() {
             result.innerHTML = length.value / 1.609;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value * 3.281;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1e+12;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 1e+9;
         }
     } else if (lengthUnit1 === '"') {
         if (lengthUnit2 === 'mm') {
@@ -108,6 +128,10 @@ function lengthChange() {
             result.innerHTML = length.value / 63360;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value / 12;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 2.54e+7;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 25400;
         }
     } else if (lengthUnit1 === 'miles') {
         if (lengthUnit2 === 'mm') {
@@ -124,6 +148,10 @@ function lengthChange() {
             result.innerHTML = length.value * 63360;
         } else if (lengthUnit2 === 'foot') {
             result.innerHTML = length.value * 5280;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1.609e+12;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 1.609e+9;
         }
     } else if (lengthUnit1 === 'foot') {
         if (lengthUnit2 === 'mm') {
@@ -140,6 +168,50 @@ function lengthChange() {
             result.innerHTML = length.value * 12;
         } else if (lengthUnit2 === 'miles') {
             result.innerHTML = length.value / 5280;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 3.4048e+8;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value * 304800;
+        }
+    } else if (lengthUnit1 === 'nm') {
+        if (lengthUnit2 === 'mm') {
+            result.innerHTML = length.value / 1e+6;
+        } else if (lengthUnit2 === 'dm') {
+            result.innerHTML = length.value / 1e+8;
+        } else if (lengthUnit2 === 'm') {
+            result.innerHTML = length.value / 1e+9;
+        } else if (lengthUnit2 === 'cm') {
+            result.innerHTML = length.value / 1e+7;
+        } else if (lengthUnit2 === '"') {
+            result.innerHTML = length.value / 2.54e+7;
+        } else if (lengthUnit2 === 'miles') {
+            result.innerHTML = length.value / 1.609e+12;
+        } else if (lengthUnit2 === 'foot') {
+            result.innerHTML = length.value / 2.048e+8;
+        } else if(lengthUnit2 === 'km') {
+            result.innerHTML = length.value / 1e+12;
+        } else if(lengthUnit2 === 'mim') {
+            result.innerHTML = length.value / 1000;
+        }
+    } else if (lengthUnit1 === 'mim') {
+        if (lengthUnit2 === 'mm') {
+            result.innerHTML = length.value / 1000;
+        } else if (lengthUnit2 === 'dm') {
+            result.innerHTML = length.value / 100000;
+        } else if (lengthUnit2 === 'm') {
+            result.innerHTML = length.value / 1000000;
+        } else if (lengthUnit2 === 'cm') {
+            result.innerHTML = length.value / 10000;
+        } else if (lengthUnit2 === '"') {
+            result.innerHTML = length.value / 25400;
+        } else if (lengthUnit2 === 'miles') {
+            result.innerHTML = length.value / 1.609+9;
+        } else if (lengthUnit2 === 'foot') {
+            result.innerHTML = length.value / 304800;
+        } else if(lengthUnit2 === 'nm') {
+            result.innerHTML = length.value * 1000;
+        } else if(lengthUnit2 === 'km') {
+            result.innerHTML = length.value / 1e+9;
         }
     }
 

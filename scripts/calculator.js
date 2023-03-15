@@ -109,30 +109,15 @@ function selectOperations(operation) {
 
 function calculateResult() {
     interimResultArea.innerHTML = resultArea.value;
-    replaceFirst(resultArea);
     correction = false;
-    let result = eval(resultArea.value);
-    resultArea.value = result;
-    for (let i = 1; i < 10; i++) {
-        if (resultArea.value.endsWith(i) && result > 10 ** -10) {
-            resultArea.value = result.toFixed(10);
-        }
-    }
-    resultArea.value = resultArea.value.replace('.', ',');
-    resultArea.value = resultArea.value.replace('e', ' * 10 ^ ');
-    resultArea.value = resultArea.value.replace('+', '');
-    while (resultArea.value.endsWith('0') && resultArea.value.match(',')) {
-        resultArea.value = resultArea.value.slice(0, -1);
-    }
-    if (resultArea.value.endsWith(',')) {
-        resultArea.value = resultArea.value.slice(0, -1);
-    }
-    if (result === Infinity) {
+    calculation();
+    if (resultArea.value === 'Infinity') {
         alert('Mathematischer Fehler: Division durch 0 ist nicht möglich!');
         resultArea.value = '';
-    } else if (result === undefined) {
+    } else if (resultArea.value === 'undefined') {
         alert('Bitte gib eine Zahl ein!');
         resultArea.value = '';
+        interimResultArea.innerHTML = '';
     }
     inputChange = true;
     inputNumber = '';
@@ -179,37 +164,36 @@ function deleteAll() {
     inputNumber = '';
 }
 
+function calculation() {
+    replaceFirst(resultArea);
+    let result = eval(resultArea.value);
+    resultArea.value = result;
+    for (let i = 1; i < 10; i++) {
+        if (resultArea.value.endsWith(i) && result > 10 ** -10) {
+            resultArea.value = result.toFixed(10);
+        }
+    }
+    resultArea.value = resultArea.value.replace('.', ',');
+    if(resultArea.value !== 'undefined') {
+        resultArea.value = resultArea.value.replace('e', ' * 10 ^ ');
+    }
+    resultArea.value = resultArea.value.replace('+', '');
+    while (resultArea.value.endsWith('0') && resultArea.value.match(',')) {
+        resultArea.value = resultArea.value.slice(0, -1);
+    }
+    if (resultArea.value.endsWith(',')) {
+        resultArea.value = resultArea.value.slice(0, -1);
+    }
+}
+
 function interimResult() {
     let input = resultArea.value;
-    replaceFirst(resultArea);
     interimResultArea.innerHTML = resultArea.value;
     resultArea.value = input;
     try {
-        let interim = eval(interimResultArea.innerHTML);
-        interimResultArea.innerHTML = interim;
-        for (let i = 1; i < 10; i++) {
-            if (interimResultArea.innerHTML.endsWith(i) && interim > 10 ** -10) {
-                interimResultArea.innerHTML = interim.toFixed(10);
-            }
-        }
-        interimResultArea.innerHTML = interimResultArea.innerHTML.replace('.', ',');
-        if (interimResultArea.innerHTML !== 'undefined') {
-            interimResultArea.innerHTML = interimResultArea.innerHTML.replace('e', ' * 10 ^ ');
-        }
-        if (interimResultArea.innerHTML === 'Infinity') {
-            interimResultArea.innerHTML = 'Division durch 0 nicht möglich!';
-        } else if (interimResultArea.innerHTML === 'undefined') {
-            interimResultArea.innerHTML = '';
-        } else if (interimResultArea.innerHTML === 'NaN') {
-            interimResultArea.innerHTML = 'Bitte prüfe deine Eingabe!';
-        }
-        interimResultArea.innerHTML = interimResultArea.innerHTML.replace('+', '');
-        while (interimResultArea.innerHTML.endsWith('0') && interimResultArea.innerHTML.match(',')) {
-            interimResultArea.innerHTML = interimResultArea.innerHTML.slice(0, -1);
-        }
-        if (interimResultArea.innerHTML.endsWith(',')) {
-            interimResultArea.innerHTML = interimResultArea.innerHTML.slice(0, -1);
-        }
+        calculation();
+        interimResultArea.innerHTML = resultArea.value;
+        resultArea.value = input;
         interimResultOld = interimResultArea.innerHTML;
     } catch (error) {
         interimResultArea.innerHTML = interimResultOld;
@@ -288,7 +272,6 @@ function faculty(number) {
     let facultyResult = 1;
     for (let i = 1; i <= number; i++) {
         facultyResult = facultyResult * i;
-        console.log(facultyResult);
     };
     number = facultyResult;
     resultArea.value += number;

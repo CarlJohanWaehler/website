@@ -9,6 +9,10 @@ const cancel = document.getElementById('cancel');
 let actualEntry = '';
 const styleElements = document.getElementById('styleElements');
 const color = document.getElementById('color');
+const unordered = document.getElementById('unordered');
+const ordered = document.getElementById('ordered');
+const listItem = document.getElementById('li');
+const closeList = document.getElementById('closeList');
 
 notes.innerHTML = localStorage.getItem('notelist');
 let counter = localStorage.getItem('count');
@@ -71,15 +75,27 @@ function specialStyle(element) {
         selectionStart = field.selectionStart;
         let textBefore = field.value.substring(0, selectionStart);
         let textAfter = field.value.substring(selectionStart);
-        field.value = textBefore + '<' + element + '></' + element + '>' + textAfter;
         let index = '';
-
-        if (element.length === 2) {
-            index = field.value.length - textAfter.length - 5;
-        } else if (element.length === 3) {
-            index = field.value.length - textAfter.length - 6;
-        } else {
-            index = field.value.length - textAfter.length - 4;
+        if(element === 'ul' || element === 'ol') {
+            field.value = textBefore + '<' + element + '>\n \n</' + element + '>' + textAfter;
+            if (element.length === 2) {
+                index = field.value.length - textAfter.length - 6;
+            } else if (element.length === 3) {
+                index = field.value.length - textAfter.length - 7;
+            } else {
+                index = field.value.length - textAfter.length - 8;
+            }
+            listItem.classList.remove('toggleUnvisible');
+            closeList.classList.remove('toggleUnvisible');
+        } else{
+            field.value = textBefore + '<' + element + '></' + element + '>' + textAfter;
+            if (element.length === 2) {
+                index = field.value.length - textAfter.length - 5;
+            } else if (element.length === 3) {
+                index = field.value.length - textAfter.length - 6;
+            } else {
+                index = field.value.length - textAfter.length - 4;
+            }
         }
         field.focus();
         field.setSelectionRange(index, index);
@@ -270,4 +286,9 @@ function changeColor() {
         selectionStart = '';
         color.value = '#FFFFFF';
     }
+}
+
+function endList() {
+    listItem.classList.add('toggleUnvisible');
+    closeList.classList.add('toggleUnvisible');
 }

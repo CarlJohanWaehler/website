@@ -24,6 +24,11 @@
     font-size: 15pt;
 }
 
+.notesEntry li{
+    margin-left: 20px;
+    line-height: 1px;
+}
+
 .notesEntry:hover{
     background-color: rgb(60, 60, 60);
 }
@@ -65,7 +70,7 @@
     background-color: rgb(60, 60, 60);
     padding: 5px;
     border-radius: 20px;
-    width: 55%;
+    width: 65%;
     user-select: none;
     border: 1px solid black;
     position: sticky;

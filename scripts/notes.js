@@ -1,13 +1,14 @@
-let newNote = document.getElementById('newNote');
-let notes = document.getElementById('notes');
-let save = document.getElementById('save');
+const newNote = document.getElementById('newNote');
+const notes = document.getElementById('notes');
+const save = document.getElementById('save');
 let editActive = false;
-let fieldOpener = document.getElementById('fieldOpener');
-let deleteAllButton = document.getElementById('deleteAll');
-let message = document.getElementById('message');
-let cancel = document.getElementById('cancel');
+const fieldOpener = document.getElementById('fieldOpener');
+const deleteAllButton = document.getElementById('deleteAll');
+const message = document.getElementById('message');
+const cancel = document.getElementById('cancel');
 let actualEntry = '';
-const palette = document.getElementById('palette');
+const styleElements = document.getElementById('styleElements');
+const color = document.getElementById('color');
 
 notes.innerHTML = localStorage.getItem('notelist');
 let counter = localStorage.getItem('count');
@@ -35,7 +36,7 @@ function noteField() {
         save.classList.remove('toggleUnvisible');
         cancel.classList.remove('toggleUnvisible');
         notes.style.pointerEvents = 'none';
-        palette.classList.remove('toggleUnvisible');
+        styleElements.classList.remove('toggleUnvisible');
         cancel.addEventListener('click', function () {
             newNote.value = '';
             save.classList.add('toggleUnvisible');
@@ -44,7 +45,7 @@ function noteField() {
             newNote.classList.add('toggleUnvisible');
             notes.style.pointerEvents = 'all';
             cancel.classList.add('toggleUnvisible');
-            palette.classList.add('toggleUnvisible');
+            styleElements.classList.add('toggleUnvisible');
             if (notes.innerHTML === '') {
                 deleteAllButton.classList.add('toggleUnvisible');
             };
@@ -67,15 +68,18 @@ function specialStyle(element) {
         selectionStart = '';
         selectionEnd = '';
     } else {
-        field.value += '<' + element + '></' + element + '>';
+        selectionStart = field.selectionStart;
+        let textBefore = field.value.substring(0, selectionStart);
+        let textAfter = field.value.substring(selectionStart);
+        field.value = textBefore + '<' + element + '></' + element + '>' + textAfter;
         let index = '';
 
-        if (element === 'h1' || element === 'h2' || element === 'h3') {
-            index = field.value.length - 5;
-        } else if (element === 'sub' || element === 'sup') {
-            index = field.value.length - 6;
+        if (element.length === 2) {
+            index = field.value.length - textAfter.length - 5;
+        } else if (element.length === 3) {
+            index = field.value.length - textAfter.length - 6;
         } else {
-            index = field.value.length - 4;
+            index = field.value.length - textAfter.length - 4;
         }
         field.focus();
         field.setSelectionRange(index, index);
@@ -124,7 +128,7 @@ function addNote() {
         localStorage.setItem('count', counter);
         selectionStart = '';
         selectionEnd = '';
-        palette.classList.add('toggleUnvisible');
+        styleElements.classList.add('toggleUnvisible');
     } else {
         alert('Bitte füge Text in das Eingabefeld! Du kannst keine Notizen ohne Inhalt anlegen!');
     }
@@ -137,7 +141,7 @@ function deleteNote(number) {
         note.remove();
         fieldOpener.classList.remove('toggleUnvisible');
         deleteAllButton.classList.remove('toggleUnvisible');
-        palette.classList.add('toggleUnvisible');
+        styleElements.classList.add('toggleUnvisible');
         actualEntry = '';
     }
     if (notes.innerHTML === '') {
@@ -154,7 +158,7 @@ function editNote(number) {
     if (!editActive) {
         editActive = true;
         actualEntry = number;
-        palette.classList.remove('toggleUnvisible');
+        styleElements.classList.remove('toggleUnvisible');
         let note = document.getElementById('note' + number);
         fieldOpener.classList.add('toggleUnvisible');
         let editButton = document.getElementById('edit' + number);
@@ -180,7 +184,7 @@ function editNote(number) {
             editButton.classList.remove('toggleUnvisible');
             deleteAllButton.classList.remove('toggleUnvisible');
             fieldOpener.classList.remove('toggleUnvisible');
-            palette.classList.add('toggleUnvisible');
+            styleElements.classList.add('toggleUnvisible');
             editActive = false;
             cancelEdit.remove();
             actualEntry = '';
@@ -227,7 +231,7 @@ function editFinish(number) {
     changeMessage.innerHTML = 'Notiz zuletzt geändert am ' + today + ' um ' + timeLeft + '.';
     localStorage.setItem('notelist', notes.innerHTML);
     actualEntry = '';
-    palette.classList.add('toggleUnvisible');
+    styleElements.classList.add('toggleUnvisible');
 }
 
 function deleteAll() {
@@ -238,5 +242,32 @@ function deleteAll() {
         notes.innerHTML = '';
         localStorage.removeItem('notelist');
         localStorage.removeItem('count');
+    }
+}
+
+function changeColor() {
+    let field = '';
+    if (editActive) {
+        field = document.getElementById('editNode' + actualEntry);
+    } else {
+        field = newNote;
+    }
+    if (selectionStart !== '') {
+        let textBefore = field.value.substring(0, selectionStart);
+        let selected = field.value.substring(selectionStart, selectionEnd);
+        let textAfter = field.value.substring(selectionEnd);
+        field.value = field.value.slice(selectionStart, 0) + textBefore + '<span style="color:' + color.value + '">' + selected + '</span>' + textAfter;
+        selectionStart = '';
+        selectionEnd = '';
+    } else {
+        selectionStart = field.selectionStart;
+        let textBefore = field.value.substring(0, selectionStart);
+        let textAfter = field.value.substring(selectionStart);
+        field.value = textBefore + '<span style="color:' + color.value + '"></span>' + textAfter;
+        let index = field.value.length - textAfter.length - 7;
+        field.focus();
+        field.setSelectionRange(index, index);
+        selectionStart = '';
+        color.value = '#FFFFFF';
     }
 }

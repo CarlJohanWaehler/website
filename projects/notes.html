@@ -17,7 +17,7 @@
         <h1><img src="../img/info.svg" alt="" class="headlineIcon"> Schreibe hier deine Notizen hinein. Du kannst sie später auch bearbeiten.</h1>
         <textarea class="toggleUnvisible" name="" id="newNote" placeholder="Notiz hier einfügen ..."></textarea>
         <br>
-        <div id="palette" class="toggleUnvisible">
+        <div id="styleElements" class="toggleUnvisible">
             <img src="../img/bold.svg" title="Fett" class="button" onclick="specialStyle('b')">
             <img src="../img/italic.svg" title="Kursiv" class="button" onclick="specialStyle('i')">
             <img src="../img/underlined.svg" title="Unterstrichen" class="button" onclick="specialStyle('u')">
@@ -30,6 +30,7 @@
             <img src="../img/h6.svg" title="Überschrift 6" class="button" onclick="specialStyle('h6')">
             <img src="../img/sup.svg" title="Hochstellen" class="button" onclick="specialStyle('sup')">
             <img src="../img/sub.svg" title="Tiefstellen" class="button" onclick="specialStyle('sub')">
+            <input type="color" id="color" onchange="changeColor()" value="#FFFFFF">
         </div>
         <br>
         <img src="../img/add.svg" alt="" class="button" id="fieldOpener" title="Neue Notiz" onclick="noteField()">

@@ -18,7 +18,7 @@ notes.innerHTML = localStorage.getItem('notelist');
 let counter = localStorage.getItem('count');
 let selectionStart = '';
 let selectionEnd = '';
-
+let now = '';
 if (notes.innerHTML === '') {
     deleteAllButton.classList.add('toggleUnvisible');
     counter = 0;
@@ -108,30 +108,10 @@ function addNote() {
         counter++;
         deleteAllButton.classList.remove('toggleUnvisible');
         let miliseconds = new Date();
-        let minutes = miliseconds / 1000 / 60;
-        let hours = minutes / 60;
-        let hoursLeft = Math.floor(hours % 24 + 1);
-        let minutesLeft = Math.floor(minutes % 60);
-        if (minutesLeft < 10) {
-            minutesLeft = '0' + minutesLeft;
-        };
-        if (hoursLeft < 10) {
-            hoursLeft = '0' + hoursLeft;
-        }
-        let timeLeft = hoursLeft + ':' + minutesLeft;
-        let month = miliseconds.getUTCMonth() + 1;
-        if (month < 10) {
-            month = '0' + month;
-        };
-        let day = miliseconds.getUTCDate();
-        if (day < 10) {
-            day = '0' + day;
-        };
-        let year = miliseconds.getUTCFullYear();
-        let today = day + '.' + month + '.' + year;
+        submitTime();
         let content = newNote.value;
         content = content.replace(/\n\r?/g, '<br>');
-        notes.innerHTML += `<div id='entry${counter}' class='notesEntry'><span id='time'>${today} ${timeLeft}</span><span id='note${counter}'>${content}</span><img src="../img/edit_note.svg" alt="" class="button" id="edit${counter}" title="Notiz bearbeiten" onclick="editNote(${counter})">
+        notes.innerHTML += `<div id='entry${counter}' class='notesEntry'><span id='time'>${now}</span><span id='note${counter}'>${content}</span><img src="../img/edit_note.svg" alt="" class="button" id="edit${counter}" title="Notiz bearbeiten" onclick="editNote(${counter})">
         <img src="../img/delete.svg" alt="" class="button" id="delete${counter}" onclick="deleteNote(${counter})" title="Notiz löschen"><br><p id='changeMessage${counter}' class='changes'></p>
         </div>`
         newNote.value = '';
@@ -222,29 +202,8 @@ function editFinish(number) {
     editButton.classList.remove('toggleUnvisible');
     deleteAllButton.classList.remove('toggleUnvisible');
     let changeMessage = document.getElementById('changeMessage' + number);
-    let miliseconds = new Date();
-    let minutes = miliseconds / 1000 / 60;
-    let hours = minutes / 60;
-    let hoursLeft = Math.floor(hours % 24 + 1);
-    let minutesLeft = Math.floor(minutes % 60);
-    if (minutesLeft < 10) {
-        minutesLeft = '0' + minutesLeft;
-    };
-    if (hoursLeft < 10) {
-        hoursLeft = '0' + hoursLeft;
-    }
-    let timeLeft = hoursLeft + ':' + minutesLeft;
-    let month = miliseconds.getUTCMonth() + 1;
-    if (month < 10) {
-        month = '0' + month;
-    };
-    let day = miliseconds.getUTCDate();
-    if (day < 10) {
-        day = '0' + day;
-    };
-    let year = miliseconds.getUTCFullYear();
-    let today = day + '.' + month + '.' + year;
-    changeMessage.innerHTML = 'Notiz zuletzt geändert am ' + today + ' um ' + timeLeft + '.';
+    submitTime();
+    changeMessage.innerHTML = 'Notiz zuletzt geändert: ' + now;
     localStorage.setItem('notelist', notes.innerHTML);
     actualEntry = '';
     styleElements.classList.add('toggleUnvisible');
@@ -291,4 +250,28 @@ function changeColor() {
 function endList() {
     listItem.classList.add('toggleUnvisible');
     closeList.classList.add('toggleUnvisible');
+}
+
+function submitTime() {
+    let date = new Date();
+    let hours = date.getHours();
+    let minutes = date.getMinutes();
+    if(minutes < 10) {
+        minutes = '0' + minutes;
+    }
+    if(hours < 10) {
+        hours = '0' + hours;
+    }
+    let time = hours + ':' + minutes;
+    let day = date.getDate();
+    if(day < 10) {
+        day = '0' + day;
+    }
+    let month = date.getMonth() + 1;
+    if(month < 10) {
+        month = '0' + month;
+    }
+    let year = date.getFullYear();
+    let fullDate = day + '.' + month + '.' + year;
+    now = fullDate + ' ' + time;
 }

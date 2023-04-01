@@ -13,6 +13,7 @@ const unordered = document.getElementById('unordered');
 const ordered = document.getElementById('ordered');
 const listItem = document.getElementById('li');
 const closeList = document.getElementById('closeList');
+const fontSizeSelection = document.getElementById('fontSize');
 
 notes.innerHTML = localStorage.getItem('notelist');
 let counter = localStorage.getItem('count');
@@ -27,7 +28,7 @@ if (notes.innerHTML === '') {
 newNote.addEventListener('select', function () {
     selectionStart = newNote.selectionStart;
     selectionEnd = newNote.selectionEnd;
-    if(selectionStart === selectionEnd) {
+    if (selectionStart === selectionEnd) {
         selectionStart = '';
     }
 });
@@ -76,7 +77,7 @@ function specialStyle(element) {
         let textBefore = field.value.substring(0, selectionStart);
         let textAfter = field.value.substring(selectionStart);
         let index = '';
-        if(element === 'ul' || element === 'ol') {
+        if (element === 'ul' || element === 'ol') {
             field.value = textBefore + '<' + element + '>\n \n</' + element + '>' + textAfter;
             if (element.length === 2) {
                 index = field.value.length - textAfter.length - 6;
@@ -87,7 +88,7 @@ function specialStyle(element) {
             }
             listItem.classList.remove('toggleUnvisible');
             closeList.classList.remove('toggleUnvisible');
-        } else{
+        } else {
             field.value = textBefore + '<' + element + '></' + element + '>' + textAfter;
             if (element.length === 2) {
                 index = field.value.length - textAfter.length - 5;
@@ -170,7 +171,7 @@ function editNote(number) {
         editNode.addEventListener('select', function () {
             selectionStart = editNode.selectionStart;
             selectionEnd = editNode.selectionEnd;
-            if(selectionStart === selectionEnd) {
+            if (selectionStart === selectionEnd) {
                 selectionStart = '';
             }
         });
@@ -220,7 +221,24 @@ function deleteAll() {
     }
 }
 
+function endList() {
+    listItem.classList.add('toggleUnvisible');
+    closeList.classList.add('toggleUnvisible');
+}
+
 function changeColor() {
+    fontChange('<span style="color:' + color.value + '">');
+}
+
+function changeFontSize() {
+    let size = fontSizeSelection.value;
+    if (size === 'user') {
+        size = prompt('Gib die gewünschte Schriftgröße ein:');
+    }
+    fontChange('<span style="font-size:' + size + 'pt">');
+}
+
+function fontChange(element) {
     let field = '';
     if (editActive) {
         field = document.getElementById('editNode' + actualEntry);
@@ -231,44 +249,39 @@ function changeColor() {
         let textBefore = field.value.substring(0, selectionStart);
         let selected = field.value.substring(selectionStart, selectionEnd);
         let textAfter = field.value.substring(selectionEnd);
-        field.value = field.value.slice(selectionStart, 0) + textBefore + '<span style="color:' + color.value + '">' + selected + '</span>' + textAfter;
+        field.value = field.value.slice(selectionStart, 0) + textBefore + element + selected + '</span>' + textAfter;
         selectionStart = '';
         selectionEnd = '';
     } else {
         selectionStart = field.selectionStart;
         let textBefore = field.value.substring(0, selectionStart);
         let textAfter = field.value.substring(selectionStart);
-        field.value = textBefore + '<span style="color:' + color.value + '"></span>' + textAfter;
+        field.value = textBefore + element + '</span>' + textAfter;
         let index = field.value.length - textAfter.length - 7;
         field.focus();
         field.setSelectionRange(index, index);
         selectionStart = '';
-        color.value = '#FFFFFF';
-    }
-}
 
-function endList() {
-    listItem.classList.add('toggleUnvisible');
-    closeList.classList.add('toggleUnvisible');
+    }
 }
 
 function submitTime() {
     let date = new Date();
     let hours = date.getHours();
     let minutes = date.getMinutes();
-    if(minutes < 10) {
+    if (minutes < 10) {
         minutes = '0' + minutes;
     }
-    if(hours < 10) {
+    if (hours < 10) {
         hours = '0' + hours;
     }
     let time = hours + ':' + minutes;
     let day = date.getDate();
-    if(day < 10) {
+    if (day < 10) {
         day = '0' + day;
     }
     let month = date.getMonth() + 1;
-    if(month < 10) {
+    if (month < 10) {
         month = '0' + month;
     }
     let year = date.getFullYear();

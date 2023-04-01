@@ -4,7 +4,7 @@ todolist.innerHTML = localStorage.getItem('todos');
 let todoNumber = localStorage.getItem('todoCounter');
 const body = document.querySelector('body');
 const deleteAllButton = document.getElementById('deleteAll');
-if(todolist.innerHTML === '') {
+if (todolist.innerHTML === '') {
     todoNumber = 0;
     deleteAllButton.classList.add('toggleUnvisible');
 }
@@ -36,7 +36,10 @@ function removeTodo(number) {
         todo = document.getElementById('todo' + number);
         todo.remove();
         if (todolist.innerHTML === '') {
-            removeAll();
+            localStorage.removeItem('todos');
+            localStorage.removeItem('todoCounter')
+            deleteAllButton.classList.add('toggleUnvisible');
+            todoNumber = 0;
         } else {
             localStorage.setItem('todos', todolist.innerHTML);
         };

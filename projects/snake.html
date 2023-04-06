@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake</title>
+    <link rel="shortcut icon" href="../img/snake.ico" type="image/x-icon">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+</head>
+
+<body>
+    <nav class="toggleUnvisible"></nav>
+    <img class="openMenu" src="../img/menu.svg" title="Menüs ein - / ausklappen" onclick="openMenu()">
+    <main>
+        <canvas id="canvas" width="480" height="480"></canvas>
+        <table>
+            <tr>
+                <td></td>
+                <td class="direction" onclick="direction = 'Up'"><img src="../img/arrow_up.svg" alt="" class="headlineIcon"></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td class="direction" onclick="direction = 'Left'"><img src="../img/arrow_left.svg" alt="" class="headlineIcon"></td>
+                <td onclick="stopSnake()" id="stop"><img src="../img/stop.svg" alt="" class="headlineIcon"></td>
+                <td class="direction" onclick="direction = 'Right'"><img src="../img/arrow_right.svg" alt="" class="headlineIcon"></td>
+            </tr>
+            <tr>
+                <td></td>
+                <td class="direction" onclick="direction = 'Down'"><img src="../img/arrow_down.svg" alt="" class="headlineIcon"></td>
+                <td></td>
+            </tr>
+        </table>
+        <h2 id="pointDisplay"></h2>
+        <h2 id="highscoreDisplay"></h2>
+        <div id="newGame" class="toggleUnvisible">
+            <div id="dialogContent">
+                <h1 id="loseText"></h1>
+                <h1 id="highscoreText"></h1>
+                <button class="accept" onclick="newGame()">Neues Spiel</button>
+            </div>
+        </div>
+    </main>
+    <footer class="toggleUnvisible"></footer>
+    <script src="../scripts/snake.js"></script>
+    <script src="../scripts/menu.js"></script>
+    <noscript>
+        <h1 id="warning">Bitte aktivierte JavaScript in deinem Browser, damit du dieses Tool nutzen kannst!</h1>
+    </noscript>
+</body>
+
+</html>

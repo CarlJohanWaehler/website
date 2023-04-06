@@ -24,9 +24,10 @@
             meinen Internetauftritt zu verbessern.</div>
         <h1><img class="headlineIcon" src="img/news.svg" alt=""> Aktuelle Neuigkeiten</h1>
         <h3 class="newsHeadline"><img src="img/feed.svg" alt="" class="headlineIcon"> 26.03.2023</h3>
-        <div class="container">Heute wurden an der Notiz-App Verbesserungen durchgeführt: Mehrzeilige Listeneinträge
-            werden nun nicht mehr komisch dargestellt. Ebenso wurde die Zeitermittlung verbessert und der Timer erkennt
-            auch automatisch die Sommerzeit.
+        <div class="container">Ihr habt vielleicht schon lange gewartet: Ich habe der Website jetzt Snake als neues
+            Projekt hinzugefügt. Viel Spaß beim Spielen! Schreibt gerne eure Highscores (man sieht im Spiel seine
+            aktuellen Punkte und höchsten Punkte während der Sitzung). Mein aktueller Rekord liegt bei 50 Punkten.
+            <br>Außerdem könnt ihr in der Notiz-App jetzt die Schriftgröße verändern.
         </div>
         <h1><img class="headlineIcon" src="img/computer.svg" alt=""> Meine Projekte im Überblick</h1>
         <div id="slider">
@@ -39,6 +40,7 @@
                 <span onclick="chooseSlider(4)">●</span>
                 <span onclick="chooseSlider(5)">●</span>
                 <span onclick="chooseSlider(6)">●</span>
+                <span onclick="chooseSlider(7)">●</span>
                 <img class="sliderControl" onclick="sliderRight()" src="img/arrow_right.svg" alt="">
                 <br>
                 <p>Automatische Umschaltung: <img onclick="disableAutoSwitch()" class="toggles" src="img/toggle_on.svg"
@@ -47,16 +49,21 @@
             </div>
             <div id="sliderContent">
                 <div>
-                    <h3><img class="headlineIcon" src="img/calculator.svg" alt=""> Taschenrechner</h3>
-                    <p><a href="projects/calculator.html"><img src="img/calculator.png" alt="" class="calculator"></a>
-                    </p>
-                    <p>Ein Taschenrechner, welcher neben den Grundrechenarten auch das Potenzieren und Radizieren
-                        beherrscht</p>
+                    <h3><img class="headlineIcon" src="img/converting.svg" alt=""> Einheitenumwandler</h3>
+                    <p><a href="projects/unit_converter.html"><img src="img/converter.png" alt="" class="timer"></a></p>
+                    <p>Schnell und einfach Einheiten umrechnen, beispielsweise Länge, Fläche oder Dateigröße</p>
                 </div>
                 <div class="sliderDisabled">
                     <h3><img class="headlineIcon" src="img/timer.svg" alt=""> Timer</h3>
                     <p><a href="projects/timer.html"><img src="img/timer.png" alt="" class="timer"></a></p>
                     <p>Ein einfacher Timer, welcher es auch erlaubt, bestimmte Zeiten abzuspeichern</p>
+                </div>
+                <div class="sliderDisabled">
+                    <h3><img class="headlineIcon" src="img/calculator.svg" alt=""> Taschenrechner</h3>
+                    <p><a href="projects/calculator.html"><img src="img/calculator.png" alt="" class="calculator"></a>
+                    </p>
+                    <p>Ein Taschenrechner, welcher neben den Grundrechenarten auch das Potenzieren und Radizieren
+                        beherrscht</p>
                 </div>
                 <div class="sliderDisabled">
                     <h3><img class="headlineIcon" src="img/quiz.svg" alt=""> Zahlen-Ratespiel</h3>
@@ -81,9 +88,9 @@
                     <p>Notizen anlegen und bearbeiten</p>
                 </div>
                 <div class="sliderDisabled">
-                    <h3><img class="headlineIcon" src="img/converting.svg" alt=""> Einheitenumwandler</h3>
-                    <p><a href="projects/unit_converter.html"><img src="img/converter.png" alt="" class="timer"></a></p>
-                    <p>Schnell und einfach Einheiten umrechnen, beispielsweise Länge, Fläche oder Dateigröße</p>
+                    <h3><img src="img/game.svg" alt="" class="headlineIcon"> Snake</h3>
+                    <p><a href="projects/snake.html"><img src="img/snake.png" alt="" class="snake"></a></p>
+                    <p>Spiele das Spiel Snake - einen bekannten Klassiker</p>
                 </div>
             </div>
         </div>

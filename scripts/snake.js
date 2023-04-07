@@ -8,6 +8,8 @@ const stopButton = document.getElementById('stop');
 const ctx = canvas.getContext('2d');
 let direction = '';
 let highscore = '';
+let vertical = false;
+let horizontal = false;
 let snake = [{
     x: 5,
     y: 5
@@ -44,14 +46,22 @@ function changeSpeed(maxWidth) {
 }
 
 document.addEventListener('keydown', function (e) {
-    if (e.keyCode === 37) {
+    if (e.keyCode === 37 && !horizontal) {
         direction = 'Left';
-    } else if (e.keyCode === 38) {
+        horizontal = true;
+        vertical = false;
+    } else if (e.keyCode === 38 && !vertical) {
         direction = 'Up';
-    } else if (e.keyCode === 39) {
+        vertical = true;
+        horizontal = false;
+    } else if (e.keyCode === 39 && !horizontal) {
         direction = 'Right';
-    } else if (e.keyCode === 40) {
+        horizontal = true;
+        vertical = false;
+    } else if (e.keyCode === 40 && !vertical) {
         direction = 'Down';
+        vertical = true;
+        horizontal = false;
     } else if(e.keyCode === 32) {
         stopSnake();
     }
@@ -159,13 +169,15 @@ function newGame() {
     loseDialog.classList.add('toggleUnvisible');
     lost = false;
     changeSpeed(maxWidth);
+    vertical = false;
+    horizontal = false;
 }
 
 function calculateHighScore() {
     if (highscore === '') {
         highscore = snake.length - 1;
         highscoreText.innerHTML = `Der Rekord liegt jetzt bei ${highscore} Punkten. Schaffst du jetzt bei deinem 2. Spiel noch mehr?`;
-    } else if (highscore <= snake.length - 1) {
+    } else if (highscore < snake.length - 1) {
         highscore = snake.length - 1;
         highscoreText.innerHTML = `Du hast den Rekord gebrochen! Er liegt jetzt bei ${highscore} Punkten. Schaffst du beim nächsten Mal noch mehr?`;
     } else {

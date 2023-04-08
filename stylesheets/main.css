@@ -440,8 +440,16 @@ select{
     background-color: rgb(40, 40, 40);
 }
 
+.marked{
+    background-color: rgb(40, 40, 40);
+}
+
+.buttonDisabled{
+    pointer-events: none;
+}
+
 @media(max-width: 600px) {
-    .calculator, .timer, #guessNumber{
+    .calculator, .timer, #guessNumber, .snake{
         width: 100%;
     }
 

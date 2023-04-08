@@ -5,6 +5,7 @@ const loseDialog = document.getElementById('newGame');
 const loseText = document.getElementById('loseText');
 const highscoreText = document.getElementById('highscoreText');
 const stopButton = document.getElementById('stop');
+const td = document.querySelectorAll('td');
 const ctx = canvas.getContext('2d');
 let direction = '';
 let highscore = '';
@@ -30,14 +31,14 @@ function changeSize(maxWidth) {
         canvas.height = 250;
         rows = 16;
         cols = 16;
-    } 
-  }
+    }
+}
 const cellWidth = canvas.width / cols;
 const cellHeight = canvas.height / rows;
 
 placeFood();
 function changeSpeed(maxWidth) {
-    if(maxWidth.matches) {
+    if (maxWidth.matches) {
         x = setInterval(gameLoop, 300);
     }
     else {
@@ -46,25 +47,28 @@ function changeSpeed(maxWidth) {
 }
 
 document.addEventListener('keydown', function (e) {
-    if (e.keyCode === 37 && !horizontal) {
-        direction = 'Left';
-        horizontal = true;
-        vertical = false;
-    } else if (e.keyCode === 38 && !vertical) {
-        direction = 'Up';
-        vertical = true;
-        horizontal = false;
-    } else if (e.keyCode === 39 && !horizontal) {
-        direction = 'Right';
-        horizontal = true;
-        vertical = false;
-    } else if (e.keyCode === 40 && !vertical) {
-        direction = 'Down';
-        vertical = true;
-        horizontal = false;
-    } else if(e.keyCode === 32) {
-        stopSnake();
+    if (!pause) {
+        if (e.keyCode === 37 && !horizontal) {
+            direction = 'Left';
+            horizontal = true;
+            vertical = false;
+        } else if (e.keyCode === 38 && !vertical) {
+            direction = 'Up';
+            vertical = true;
+            horizontal = false;
+        } else if (e.keyCode === 39 && !horizontal) {
+            direction = 'Right';
+            horizontal = true;
+            vertical = false;
+        } else if (e.keyCode === 40 && !vertical) {
+            direction = 'Down';
+            vertical = true;
+            horizontal = false;
+        }
     }
+    if(e.keyCode === 32) {
+        stopSnake();
+    };
 });
 
 draw();
@@ -81,14 +85,23 @@ function shiftSnake() {
 function gameLoop() {
     testGameOver();
     shiftSnake();
+    unmarkButtons();
     if (direction === 'Left') {
         snake[0].x--;
+        td[5].classList.add('buttonDisabled');
+        td[3].classList.add('marked');
     } else if (direction === 'Right') {
         snake[0].x++;
+        td[3].classList.add('buttonDisabled');
+        td[5].classList.add('marked');
     } else if (direction === 'Up') {
         snake[0].y--;
+        td[7].classList.add('buttonDisabled');
+        td[1].classList.add('marked');
     } else if (direction === 'Down') {
         snake[0].y++;
+        td[1].classList.add('buttonDisabled');
+        td[7].classList.add('marked');
     }
     if (snake[0].x === food.x && snake[0].y === food.y) {
         snake = [{
@@ -186,15 +199,28 @@ function calculateHighScore() {
 }
 
 function stopSnake() {
-    if(!pause) {
+    if (!pause) {
         clearInterval(x);
         pause = true;
         pointDisplay.innerHTML = 'Pause! Zum Fortsetzen bitte erneut die Leertaste drücken!';
         highscoreDisplay.innerHTML = '';
-        stopButton.innerHTML = '<img src="../img/play.svg" alt="" class="headlineIcon">'
-    } else{
+        stopButton.innerHTML = '<img src="../img/play.svg" alt="" class="headlineIcon">';
+        td[1].classList.add('buttonDisabled');
+        td[3].classList.add('buttonDisabled');
+        td[5].classList.add('buttonDisabled');
+        td[7].classList.add('buttonDisabled');
+    } else {
+        unmarkButtons();
+        gameLoop();
         changeSpeed(maxWidth);
         pause = false;
         stopButton.innerHTML = '<img src="../img/stop.svg" alt="" class="headlineIcon">';
+    }
+}
+
+function unmarkButtons() {
+    for (let i = 0; i < td.length; i++) {
+        td[i].classList.remove('marked');
+        td[i].classList.remove('buttonDisabled');
     }
 }

@@ -66,7 +66,7 @@ document.addEventListener('keydown', function (e) {
             horizontal = false;
         }
     }
-    if(e.keyCode === 32) {
+    if (e.keyCode === 32) {
         stopSnake();
     };
 });
@@ -122,9 +122,18 @@ function placeFood() {
         y: randomY
     };
     for (let i = snake.length - 1; i >= 0; i--) {
-        while (snake[i].x && snake[i].y === food.x && food.y) {
-            placeFood();
-            draw();
+        while (snake[i].x === food.x && snake[i].y === food.y) {
+            clearInterval(x);
+            randomX = (Math.floor(Math.random() * cols));
+            randomY = (Math.floor(Math.random() * rows));
+            food = {
+                x: randomX,
+                y: randomY
+            };
+            if(snake[i].x !== food.x || snake[i].y !== food.y) {
+                draw();
+                changeSpeed(maxWidth);
+            }
         }
     }
 }

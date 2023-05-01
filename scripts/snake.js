@@ -8,7 +8,10 @@ const stopButton = document.getElementById('stop');
 const td = document.querySelectorAll('td');
 const ctx = canvas.getContext('2d');
 let direction = '';
-let highscore = '';
+let highscore = localStorage.getItem('snakeHighScore');
+if(highscore === null) {
+    highscore = '';
+}
 let vertical = false;
 let horizontal = false;
 let snake = [{
@@ -165,17 +168,19 @@ function displayPoints() {
 }
 
 function testGameOver() {
+    let lostReason;
     if (snake[0].x < 0 || snake[0].x > cols - 1 || snake[0].y < 0 || snake[0].y > rows - 1) {
         lost = true;
-
+        lostReason = 'Die Schlange hat eine Wand gerammt!';
     }
     for (let i = snake.length - 1; i > 1; i--) {
         if (snake[0].x === snake[i].x && snake[0].y === snake[i].y) {
             lost = true;
+            lostReason = 'Die Schlange ist in sich selbst gerammt!';
         }
     }
     if (lost) {
-        loseText.innerHTML = `<img class="headlineIcon" src="../img/info.svg"> Du hast verloren! Du hast ${snake.length - 1} Punkte erreicht!`;
+        loseText.innerHTML = `<img class="headlineIcon" src="../img/info.svg"> Du hast verloren! Ursache: ${lostReason} Du hast ${snake.length - 1} Punkte erreicht!`;
         loseDialog.classList.remove('toggleUnvisible');
         calculateHighScore();
         clearInterval(x);
@@ -199,9 +204,11 @@ function calculateHighScore() {
     if (highscore === '') {
         highscore = snake.length - 1;
         highscoreText.innerHTML = `Der Rekord liegt jetzt bei ${highscore} Punkten. Schaffst du jetzt bei deinem 2. Spiel noch mehr?`;
+        localStorage.setItem('snakeHighScore', highscore);
     } else if (highscore < snake.length - 1) {
         highscore = snake.length - 1;
         highscoreText.innerHTML = `Du hast den Rekord gebrochen! Er liegt jetzt bei ${highscore} Punkten. Schaffst du beim nächsten Mal noch mehr?`;
+        localStorage.setItem('snakeHighScore', highscore);
     } else {
         highscoreText.innerHTML = `Dein Rekord liegt bei ${highscore} Punkten. Schaffst du es, ihn zu brechen?`;
     }
@@ -232,4 +239,10 @@ function unmarkButtons() {
         td[i].classList.remove('marked');
         td[i].classList.remove('buttonDisabled');
     }
+}
+
+function deleteHighScore() {
+    highscore = '';
+    localStorage.removeItem('snakeHighScore');
+    alert('Rekord erfolgreich gelöscht!');
 }

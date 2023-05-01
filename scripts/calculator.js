@@ -152,6 +152,9 @@ function deleteLast() {
     operator = false;
     correction = false;
     interimResult();
+    if(interimResultArea.innerHTML === 'undefined') {
+        interimResultArea.innerHTML = '';
+    }
 }
 
 function deleteAll() {

@@ -316,3 +316,19 @@ function restoreCalculation(number) {
 function displayAngle() {
     angleDisplay.innerHTML = angle.innerHTML;
 }
+
+function leapYear() {
+    let year = prompt('Gib ein Jahr ein:');
+    if(year === null || year === '') {
+        year = 'a';
+    }
+    if(year % 100 === 0 && year % 400 !== 0) {
+        alert(year + ' ist kein Schaltjahr!');
+    } else if(year % 400 === 0) {
+        alert(year + ' ist ein Schaltjahr!');
+    } else if(year % 4 === 0) {
+        alert(year + ' ist ein Schaltjahr!');
+    } else if(typeof year !== Number) {
+        alert('Fehler! Bitte erneut versuchen!');
+    }
+}

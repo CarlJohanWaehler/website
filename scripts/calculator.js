@@ -7,6 +7,7 @@ const additionalFeatures = document.getElementById('additionalFeatures');
 const angle = document.getElementById('angle');
 const history = document.getElementById('history');
 const historyContent = document.getElementById('boxContent');
+const converter = document.getElementById('converter');
 const calculatorMenuToggle = document.getElementById('calculatorMenuToggle');
 const angleDisplay = document.getElementById('angleDisplay');
 let additionalFeaturesOpened = false;
@@ -21,6 +22,7 @@ let addCloseClip = false;
 let trigonometry = false;
 let inputNumber = '';
 let historyOpen = false;
+let converterOpen = false;
 let counter = 1;
 
 displayAngle();
@@ -262,6 +264,25 @@ function showHistory() {
     } else {
         history.classList.remove('toggleUnvisible');
         historyOpen = true;
+        openCalculatorMenu();
+        control.classList.add('disabled');
+        navigation.classList.add('disabled');
+        calculatorMenuToggle.classList.add('disabled');
+        body.style.overflow = 'hidden';
+    }
+}
+
+function showConverter() {
+    if (converterOpen) {
+        converter.classList.add('toggleUnvisible');
+        converterOpen = false;
+        control.classList.remove('disabled');
+        navigation.classList.remove('disabled');
+        calculatorMenuToggle.classList.remove('disabled');
+        body.style.overflow = 'initial';
+    } else {
+        converter.classList.remove('toggleUnvisible');
+        converterOpen = true;
         openCalculatorMenu();
         control.classList.add('disabled');
         navigation.classList.add('disabled');

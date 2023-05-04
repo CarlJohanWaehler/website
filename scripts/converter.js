@@ -1,6 +1,14 @@
+const unitOverview = document.getElementById('unitOverview');
+const unitFields = document.getElementById('unitFields');
+const units = unitFields.querySelectorAll('div');
+const button = document.getElementById('submit');
+const headline = document.getElementById('unitType');
+const selects = document.querySelectorAll('select');
+const inputs = document.querySelectorAll('input');
+
 // Length units
 const length = document.getElementById('length');
-const result = document.getElementById('result');
+const result = document.getElementById('convertingResult');
 const conversionStart = document.getElementById('startConverting');
 let choosedUnit = '';
 length.addEventListener('keyup', function(e) {
@@ -789,7 +797,6 @@ speed.addEventListener('keyup', function(e) {
 });
 
 function speedChange() {
-    console.log('Geschwindigkeit' + choosedUnit);
     let speedUnit1 = document.getElementById('speedUnit1').value;
     let speedUnit2 = document.getElementById('speedUnit2').value;
     if(speedUnit1 === 'ms') {
@@ -859,28 +866,14 @@ function speedChange() {
 }
 
 // Choose units
-const unitOverview = document.getElementById('unitOverview');
-const main = document.querySelector('main');
-const units = main.querySelectorAll('div');
-const home = document.getElementById('home');
-const selects = document.querySelectorAll('select');
-const inputs = document.querySelectorAll('input');
-const paragraphs = main.querySelectorAll('p');
-let choose = true;
-const button = document.getElementById('submit');
-const headline = document.getElementById('headline');
-
 function chooseUnit(unit) {
-    if(choose) {
+        unitOverview.classList.add('toggleUnvisible');
         for (let i = 0; i < units.length; i++) {
             units[i].classList.add('toggleUnvisible');
         }
         units[unit].classList.remove('toggleUnvisible');
-        unitOverview.classList.add('toggleUnvisible');
-        home.classList.remove('toggleUnvisible');
-        choose = false;
+        choosedUnit = unit;
         button.classList.remove('toggleUnvisible');
-        headline.classList.remove('toggleUnvisible');
         if(unit === 0) {
             headline.innerHTML = '<img src="../img/length.svg" alt="" class="headlineIcon"> Länge';
         } else if(unit === 1) {
@@ -894,25 +887,23 @@ function chooseUnit(unit) {
         } else if(unit === 5) {
             headline.innerHTML = '<img src="../img/speed.svg" alt="" class="headlineIcon"> Geschwindigkeit';
         }
-    } else{
-        home.classList.add('toggleUnvisible');
-        unitOverview.classList.remove('toggleUnvisible');
-        for (let i = 0; i < units.length; i++) {
-            units[i].classList.add('toggleUnvisible');
-        }
-        choose = true;
-        button.classList.add('toggleUnvisible');
-        headline.classList.add('toggleUnvisible');
-    }
-    choosedUnit = unit;
-    for (let i = 0; i < selects.length; i++) {
-       selects[i].value = '';
-    }
+}
 
-    for (let i = 0; i < inputs.length; i++) {
-        inputs[i].value = '';
+function showStart() {
+    unitOverview.classList.remove('toggleUnvisible');
+    for (let i = 0; i < units.length; i++) {
+        units[i].classList.add('toggleUnvisible');
     }
-    result.innerHTML = '';
+    button.classList.add('toggleUnvisible');
+    for (let i = 0; i < selects.length; i++) {
+        selects[i].value = '';
+     }
+ 
+     for (let i = 0; i < inputs.length; i++) {
+         inputs[i].value = '';
+     }
+     result.innerHTML = '';
+     headline.innerHTML = '';
 }
 
 function startConverting() {

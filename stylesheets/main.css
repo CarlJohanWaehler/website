@@ -267,32 +267,9 @@ select{
     margin-bottom: 10px;
 }
 
-.resultConverting{
-    margin: 15px 5px;
-    font-size: 15pt;
-}
-
-
 .click{
     user-select: none;
     cursor: pointer;
-}
-
-#home{
-    user-select: none;
-    cursor: pointer;
-    border-radius: 10px;
-    width: 70px;
-    margin-bottom: 30px;
-}
-
-#home:hover{
-    background-color: rgb(40, 40, 40);
-}
-
-.overviewContent{
-    display: flex;
-    width: 100%;
 }
 
 .merkmale{
@@ -448,6 +425,10 @@ select{
     pointer-events: none;
 }
 
+.closeBar {
+    border-bottom: 3px solid rgb(10, 10, 10);
+}
+
 @media(max-width: 600px) {
     .calculator, .timer, #guessNumber, .snake{
         width: 100%;
@@ -486,11 +467,6 @@ select{
     #projectClick span{
         margin-left: 5px;
         font-size: 16px;
-    }
-
-    .overviewContent{
-        display: initial;
-        width: 100%;
     }
 
     #newGame{

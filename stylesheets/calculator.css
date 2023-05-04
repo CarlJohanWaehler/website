@@ -24,7 +24,7 @@ td:hover {
     background-color: rgb(100, 100, 100);
 }
 
-input {
+#resultArea {
     width: 97%;
     height: 100%;
     text-align: right;
@@ -135,7 +135,11 @@ input {
     background-color: rgb(70, 70, 70);
 }
 
-#history {
+.closeBar {
+    border-bottom: 3px solid rgb(10, 10, 10);
+}
+
+#history, #converter {
     background-color: rgb(40, 40, 40);
     position: absolute;
     top: 70px;
@@ -146,16 +150,20 @@ input {
     box-shadow: 0px 13px 13px 5px #000000;
 }
 
-#boxContent {
+#converter{
+    background-color: rgb(20, 20, 20);
+}
+
+#boxContent, #converterContent{
     overflow-y: auto;
     height: 80%;
 }
 
-#closeBar {
-    border-bottom: 3px solid rgb(10, 10, 10);
+#converterContent{
+    padding: 10px;
 }
 
-#history h2 {
+#history h2, #converter h2{
     padding: 20px;
     font-size: 20pt;
 }
@@ -186,15 +194,119 @@ input {
     user-select: none;
 }
 
+.overviewContent{
+    display: flex;
+    width: 100%;
+}
+
+.cards{
+    width: 48%;
+    background-color: rgb(40, 40, 40);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 4px;
+    text-align: center;
+    line-height: 1.5em;
+    user-select: none;
+}
+
+.cards h1{
+    margin-bottom: 10px;
+    font-size: 20pt;
+}
+
+.cards:hover{
+    background-color: rgb(60, 60, 60);
+}
+
+#converter input{
+    margin-bottom: 15px;
+    padding: 0 12px;
+    font-family: inherit;
+    font-size: 14pt;
+    color: inherit;
+    background-color: rgb(40, 40, 40);
+    min-width: 50%;
+    height: 40px;
+    border: 1px solid rgb(100, 100, 100);
+    border-radius: 10px;
+}
+
+#converter input:focus, textarea:focus{
+    outline: none;
+    background-color: rgb(60, 60, 60);
+}
+
+#converter input:hover, textarea:hover{
+    background-color: rgb(50, 50, 50);
+}
+
+select{
+    background-color: rgb(40, 40, 40);
+    color: inherit;
+    font-size: 14pt;
+    border-radius: 10px;
+    padding: 10px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-bottom: 10px;
+}
+
+.accept{
+    font-size: 13pt;
+    width: 200px;
+    height: 50px;
+    color: inherit;
+    background-color: rgb(20, 20, 20);
+    user-select: none;
+    cursor: pointer;
+    border-radius: 30px;
+    border: 1px solid rgb(100, 100, 100);
+    margin-bottom: 30px;
+}
+
+.accept:hover{
+    background-color: rgb(40, 40, 40);
+    width: 210px;
+    transition: 0.4s;
+}
+
+.accept:focus{
+    outline: none;
+    background-color: rgb(60, 60, 60);
+}
+
+#unitType{
+    margin-bottom: 20px;
+    font-size: 30pt;
+}
+
+.resultConverting{
+    margin: 15px 5px;
+    font-size: 15pt;
+}
+
 @media(max-width: 600px) {
-    #history{
+    #history, #converter{
         left: 0;
         width: 100%;
     }
 
-    input{
+    #resultArea{
         margin-left: 15%;
         width: 85%;
         font-size: 40px;
+    }
+
+    .overviewContent{
+        display: initial;
+        width: 100%;
+    }
+
+    .cards{
+        width: 90%;
+        line-height: 1em;
+        margin: 0;
+        padding-bottom: 10px;
+        padding-top: 10px;
     }
 }

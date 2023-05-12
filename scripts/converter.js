@@ -865,6 +865,204 @@ function speedChange() {
     }
 }
 
+// Angle change
+const angleInput = document.getElementById('angleInput');
+angleInput.addEventListener('keyup', function(e) {
+    if(e.keyCode === 13) {
+        angleChange();
+    }
+})
+
+function angleChange() {
+    let angleUnit1 = document.getElementById('angleUnit1').value;
+    let angleUnit2 = document.getElementById('angleUnit2').value;
+    if(angleUnit1 === 'deg') {
+        if(angleUnit2 === 'rad') {
+            result.innerHTML = angleInput.value * PI / 180;
+        } else if(angleUnit2 === 'gon') {
+            result.innerHTML = angleInput.value * 10 / 9;
+        }
+    } else if(angleUnit1 === 'rad') {
+        if(angleUnit2 === 'deg') {
+            result.innerHTML = angleInput.value * 180 / PI;
+        } else if(angleUnit2 === 'gon') {
+            result.innerHTML = angleInput.value * 200 / PI;
+        }
+    } else if(angleUnit1 === 'gon') {
+        if(angleUnit2 === 'deg') {
+            result.innerHTML = angleInput.value * 9 / 10;
+        } else if(angleUnit2 === 'rad') {
+            result.innerHTML = angleInput.value * PI / 200;
+        }
+    }
+    if(angleUnit1 === angleUnit2 && angleUnit1 !== '') {
+        alert('Du kannst nicht in die Ausgangseinheit umrechnen! Wähle bitte eine andere Einheit aus!');
+    }
+    if (angleUnit1 === '' || angleUnit2 === '') {
+        alert('Mindestens eine Umrechnungsgröße ist nicht angegeben. Bitte wähle die fehlende(n) Größe(n) aus.');
+    }
+    if (angleInput.value === '') {
+        alert('Bitte gib einen Wert ein, der umgerechnet werden soll!');
+    } else if (angleInput.value < 0) {
+        result.innerHTML = '';
+        alert('Der eingegebene Wert muss positiv sein!');
+    }
+}
+
+// Weight change
+const weight = document.getElementById('weight');
+weight.addEventListener('keyup', function(e) {
+    if(e.keyCode === 13) {
+        weightChange();
+    }
+})
+
+function weightChange() {
+    let weightUnit1 = document.getElementById('weightUnit1').value;
+    let weightUnit2 = document.getElementById('weightUnit2').value;
+    if(weightUnit1 === 'mig') {
+        if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value / 1000;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value / 1e+6;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value / 1e+9;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 1e+12;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value / 2,835e+7;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value / 4,536e+8;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 0.000005;
+        }
+    } else if(weightUnit1 === 'mg') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 1000;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value / 1000;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value / 1e+6;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 1e+9;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value / 28350;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value / 453600;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 0.005;
+        }
+    } else if(weightUnit1 === 'g') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 1000;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 1e+6;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value / 1000;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 1e+6;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value / 28.35;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value / 453.6;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 5;
+        }
+    } else if(weightUnit1 === 'kg') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 1e+9;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 1e+6;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value * 1000;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 1000;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value * 35.275;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value * 2.205;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 5000;
+        }
+    } else if(weightUnit1 === 't') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 1e+12;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 1e+9;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value * 1e+6;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value * 1000;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value * 35270;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value * 2205;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 5e+6;
+        }
+    } else if(weightUnit1 === 'unze') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 2.835e+7;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 28350;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value * 28.35;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value / 35.274;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 25270;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value / 16;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 141.7476;
+        }
+    } else if(weightUnit1 === 'pfund') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 4.536e+8;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 453600;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value * 453.6;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value / 2.205;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value / 2205;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value * 16;
+        } else if(weightUnit2 === 'karat') {
+            result.innerHTML = weight.value * 2267.962;
+        }
+    } else if(weightUnit1 === 'karat') {
+        if(weightUnit2 === 'mig') {
+            result.innerHTML = weight.value * 200000;
+        } else if(weightUnit2 === 'mg') {
+            result.innerHTML = weight.value * 200;
+        } else if(weightUnit2 === 'g') {
+            result.innerHTML = weight.value * 0.2;
+        } else if(weightUnit2 === 'kg') {
+            result.innerHTML = weight.value * 0.0002;
+        } else if(weightUnit2 === 't') {
+            result.innerHTML = weight.value * 0.0000002;
+        } else if(weightUnit2 === 'unze') {
+            result.innerHTML = weight.value * 0.007055;
+        } else if(weightUnit2 === 'pfund') {
+            result.innerHTML = weight.value * 0.000441;
+        }
+    }
+    if(weightUnit1 === weightUnit2 && weightUnit1 !== '') {
+        alert('Du kannst nicht in die Ausgangseinheit umrechnen! Wähle bitte eine andere Einheit aus!');
+    }
+    if (weightUnit1 === '' || weightUnit2 === '') {
+        alert('Mindestens eine Umrechnungsgröße ist nicht angegeben. Bitte wähle die fehlende(n) Größe(n) aus.');
+    }
+    if (weight.value === '') {
+        alert('Bitte gib einen Wert ein, der umgerechnet werden soll!');
+    } else if (weight.value < 0) {
+        result.innerHTML = '';
+        alert('Der eingegebene Wert muss positiv sein!');
+    }
+}
+
 // Choose units
 function chooseUnit(unit) {
         unitOverview.classList.add('toggleUnvisible');
@@ -886,6 +1084,10 @@ function chooseUnit(unit) {
             headline.innerHTML = '<img src="../img/timer.svg" alt="" class="headlineIcon"> Zeit';
         } else if(unit === 5) {
             headline.innerHTML = '<img src="../img/speed.svg" alt="" class="headlineIcon"> Geschwindigkeit';
+        } else if(unit === 6) {
+            headline.innerHTML = '<img src="../img/architecture.svg" alt="" class="headlineIcon"> Winkel';
+        } else if(unit === 7) {
+            headline.innerHTML = '<img src="../img/weight.svg" alt="" class="headlineIcon"> Masse';
         }
 }
 
@@ -919,5 +1121,9 @@ function startConverting() {
         timeChange();
     } else if(choosedUnit === 5) {
         speedChange();
+    } else if(choosedUnit === 6) {
+        angleChange();
+    } else if(choosedUnit === 7) {
+        weightChange();
     }
 }

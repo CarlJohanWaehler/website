@@ -145,6 +145,16 @@
                         <h1>Geschwindigkeit</h1>
                     </div>
                 </div>
+                <div class="overviewContent">
+                    <div class="cards click" onclick="chooseUnit(6)">
+                        <h1><img src="../img/architecture.svg" alt="" class="logo"></h1>
+                        <h1>Winkel</h1>
+                    </div>
+                    <div class="cards click" onclick="chooseUnit(7)">
+                        <h1><img src="../img/weight.svg" alt="" class="logo"></h1>
+                        <h1>Masse</h1>
+                    </div>
+                </div>
             </div>
             <h1 id="unitType"></h1>
             <div id="unitFields">
@@ -302,6 +312,50 @@
                         <option value="kn">Knoten</option>
                         <option value="mih">Meile pro Stunde</option>
                         <option value="fs">Fuß pro Sekunde</option>
+                    </select>
+                </div>
+                <div class="toggleUnvisible">
+                    <select name="" id="angleUnit1">
+                        <option value="">-- bitte auswählen --</option>
+                        <option value="deg">Grad</option>
+                        <option value="rad">Bogenmaß</option>
+                        <option value="gon">Gon</option>
+                    </select>
+                    <br>
+                    <input type="number" id="angleInput" min="0">
+                    <br>
+                    <select name="" id="angleUnit2">
+                        <option value="">-- bitte auswählen --</option>
+                        <option value="deg">Grad</option>
+                        <option value="rad">Bogenmaß</option>
+                        <option value="gon">Gon</option>
+                    </select>
+                </div>
+                <div class="toggleUnvisible">
+                    <select name="" id="weightUnit1">
+                        <option value="">-- bitte auswählen --</option>
+                        <option value="mig">Mikrogramm</option>
+                        <option value="mg">Milligramm</option>
+                        <option value="g">Gramm</option>
+                        <option value="kg">Kilogramm</option>
+                        <option value="t">Tonne</option>
+                        <option value="unze">Unze</option>
+                        <option value="pfund">Pfund</option>
+                        <option value="karat">Karat</option>
+                    </select>
+                    <br>
+                    <input type="number" id="weight" min="0">
+                    <br>
+                    <select name="" id="weightUnit2">
+                        <option value="">-- bitte auswählen --</option>
+                        <option value="mig">Mikrogramm</option>
+                        <option value="mg">Milligramm</option>
+                        <option value="g">Gramm</option>
+                        <option value="kg">Kilogramm</option>
+                        <option value="t">Tonne</option>
+                        <option value="unze">Unze</option>
+                        <option value="pfund">Pfund</option>
+                        <option value="karat">Karat</option>
                     </select>
                 </div>
             </div>

@@ -28,7 +28,7 @@ let counter = 1;
 displayAngle();
 
 body.addEventListener("keyup", function (e) {
-    if (e.keyCode === 13) {
+    if (e.keyCode === 13 && !calculatorMenuOpen) {
         calculateResult();
     } else {
         interimResult();
@@ -154,7 +154,7 @@ function deleteLast() {
     operator = false;
     correction = false;
     interimResult();
-    if(interimResultArea.innerHTML === 'undefined') {
+    if (interimResultArea.innerHTML === 'undefined') {
         interimResultArea.innerHTML = '';
     }
 }
@@ -179,7 +179,7 @@ function calculation() {
         }
     }
     resultArea.value = resultArea.value.replace('.', ',');
-    if(resultArea.value !== 'undefined') {
+    if (resultArea.value !== 'undefined') {
         resultArea.value = resultArea.value.replace('e', ' * 10 ^ ');
     }
     resultArea.value = resultArea.value.replace('+', '');
@@ -199,6 +199,9 @@ function interimResult() {
         calculation();
         interimResultArea.innerHTML = resultArea.value;
         resultArea.value = input;
+        if (interimResultArea.innerHTML === 'undefined') {
+            interimResultArea.innerHTML = '';
+        }
         interimResultOld = interimResultArea.innerHTML;
     } catch (error) {
         interimResultArea.innerHTML = interimResultOld;
@@ -319,16 +322,18 @@ function displayAngle() {
 
 function leapYear() {
     let year = prompt('Gib ein Jahr ein:');
-    if(year === null || year === '') {
+    if (year === null || year === '') {
         year = 'a';
     }
-    if(year % 100 === 0 && year % 400 !== 0) {
+    if (year % 100 === 0 && year % 400 !== 0) {
         alert(year + ' ist kein Schaltjahr!');
-    } else if(year % 400 === 0) {
+    } else if (year % 400 === 0) {
         alert(year + ' ist ein Schaltjahr!');
-    } else if(year % 4 === 0) {
+    } else if (year % 4 === 0) {
         alert(year + ' ist ein Schaltjahr!');
-    } else if(typeof year !== Number) {
+    } else if(year % 4 !== 0) {
+        alert(year + ' ist kein Schaltjahr!');
+    } else if (typeof year !== Number) {
         alert('Fehler! Bitte erneut versuchen!');
     }
 }

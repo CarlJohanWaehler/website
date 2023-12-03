@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vokabeltrainer Englisch</title>
+    <link rel="stylesheet" href="../stylesheets/structure.css">
+    <link rel="stylesheet" href="../stylesheets/main.css">
+    <link rel="stylesheet" href="../stylesheets/vocabular.css">
+    <link rel="shortcut icon" href="../img/quiz.ico" type="image/x-icon">
+</head>
+
+<body>
+    <nav></nav>
+    <main>
+        <button id="dictonaryOpener" class="accept" onclick="openVocabulary()">Vokabeln hinzufügen</button>
+        <button id="dictonaryOverview" class="accept" onclick="showDictonary()">Vokabelliste verwalten</button>
+        <br><button class="accept" id="intoGerman" onclick="english_german()">Englisch > Deutsch</button> <button class="accept"
+            onclick="german_english()">Deutsch > Englisch</button>
+        <div id="dictonary" class="toggleUnvisible">
+            <div class="closeBar">
+                <h2>Vokabeln hinzufügen</h2>
+                <p class="close cornerTopRight" onclick="openVocabulary()"><img src="../img/close.svg" alt=""></p>
+            </div>
+            <div class="boxContent">
+                <input type="text" name="Englisch" placeholder="Englisch" id="english">
+                <br>
+                <input type="text" name="Deutsch" placeholder="Deutsch" id="german">
+                <br>
+                <button class="accept" onclick="saveVocabulary()">Speichern</button>
+            </div>
+        </div>
+        <div id="vocab-list" class="toggleUnvisible">
+            <div class="closeBar">
+                <h2>Vokabelliste verwalten</h2>
+                <p class="close cornerTopRight" onclick="showDictonary()"><img src="../img/close.svg" alt=""></p>
+            </div>
+            <div class="boxContent">
+                <table>
+                    <thead>
+                        <th>Englisch</th>
+                        <th>Deutsch</th>
+                        <th></th>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+        <div class="toggleUnvisible" id="eng_ger">
+            <h1 id="english_word"></h1>
+            <input type="text" name="Deutsch" placeholder="Deutsch" id="germanTranslation">
+            <button class="accept" onclick="checkTranslation_ger()">Überprüfen</button>
+            <p id="germanCheck"></p>
+        </div>
+        <div class="toggleUnvisible" id="ger_eng">
+            <h1 id="german_word"></h1>
+            <input type="text" name="Englisch" placeholder="Englisch" id="englishTranslation">
+            <button class="accept" onclick="checkTranslation_eng()">Überprüfen</button>
+            <p id="englishCheck"></p>
+        </div>
+    </main>
+    <footer></footer>
+    <script src="../scripts/menu.js"></script>
+    <script src="../scripts/vocabular.js"></script>
+</body>
+
+</html>

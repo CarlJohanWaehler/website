@@ -28,7 +28,7 @@ let counter = 1;
 displayAngle();
 
 body.addEventListener("keyup", function (e) {
-    if (e.keyCode === 13 && !calculatorMenuOpen) {
+    if (e.keyCode === 13 && !calculatorMenuOpen && !converterOpen) {
         calculateResult();
     } else {
         interimResult();
@@ -103,6 +103,9 @@ function selectOperations(operation) {
         resultArea.value += operation;
         resultArea.value = resultArea.value.replace('!', '');
     }
+    if(operation === 'rand') {
+        calculateResult();
+    }
     interimResult();
     if (additionalFeaturesOpened) {
         openAdditionalFeatures();
@@ -120,11 +123,14 @@ function calculateResult() {
         alert('Bitte gib eine Zahl ein!');
         resultArea.value = '';
         interimResultArea.innerHTML = '';
+    } else if (resultArea.value === 'NaN') {
+        alert('Fehler: Der Rechner konnte die eingegebene Rechnung aufgrund nicht ausführen! Grund hierfür sind fehlende Zahlen bei einzelnen Operatoren.');
+        resultArea.value = '';
     }
     inputChange = true;
     inputNumber = '';
     if (resultArea.value !== '') {
-        historyContent.innerHTML += `<div onclick='restoreCalculation(${counter})'><p id='calculation${counter}' class='calculation'>${interimResultArea.innerHTML}</p><p id='result${counter}' class='result'>${resultArea.value}</p></div>`
+        historyContent.innerHTML = `<div onclick='restoreCalculation(${counter})'><p id='calculation${counter}' class='calculation'>${interimResultArea.innerHTML}</p><p id='result${counter}' class='result'>${resultArea.value}</p></div>` + historyContent.innerHTML;
         counter++;
     }
 }
@@ -194,11 +200,9 @@ function calculation() {
 function interimResult() {
     let input = resultArea.value;
     interimResultArea.innerHTML = resultArea.value;
-    resultArea.value = input;
     try {
         calculation();
         interimResultArea.innerHTML = resultArea.value;
-        resultArea.value = input;
         if (interimResultArea.innerHTML === 'undefined') {
             interimResultArea.innerHTML = '';
         }
@@ -206,6 +210,7 @@ function interimResult() {
     } catch (error) {
         interimResultArea.innerHTML = interimResultOld;
     }
+    resultArea.value = input;
 }
 
 function replaceFirst(area) {
@@ -331,7 +336,7 @@ function leapYear() {
         alert(year + ' ist ein Schaltjahr!');
     } else if (year % 4 === 0) {
         alert(year + ' ist ein Schaltjahr!');
-    } else if(year % 4 !== 0) {
+    } else if (year % 4 !== 0) {
         alert(year + ' ist kein Schaltjahr!');
     } else if (typeof year !== Number) {
         alert('Fehler! Bitte erneut versuchen!');

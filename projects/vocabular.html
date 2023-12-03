@@ -26,7 +26,12 @@
             <div class="boxContent">
                 <input type="text" name="Englisch" placeholder="Englisch" id="english">
                 <br>
-                <input type="text" name="Deutsch" placeholder="Deutsch" id="german">
+                <input type="text" name="Deutsch" placeholder="Deutsch" id="german"> <img src="../img/add.svg" title="Bedeutung hinzufügen" class="button" onclick="openAdditional()">
+                <div class="toggleUnvisible" id="additionalGerman">
+                    <input type="text" name="Deutsch: 2. Bedeutung" placeholder="Deutsch: 2. Bedeutung" id="german2">
+                    <br>
+                    <input type="text" name="Deutsch: 3. Bedeutung" placeholder="Deutsch: 3. Bedeutung" id="german3">
+                </div>
                 <br>
                 <button class="accept" onclick="saveVocabulary()">Speichern</button>
             </div>

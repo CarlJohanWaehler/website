@@ -201,7 +201,7 @@ function saveVocabulary() {
         }
         alert("Das Vokabelpaar wurde erfolgreich eingespeichert!");
     } else {
-        alert("Ungültige Eingabe! Es müssen beide Eingabefelder gefüllt sein!");
+        alert("Ungültige Eingabe! Es müssen mindestens das Feld für Englisch und das oberste Feld für Deutsch ausgefüllt sein!");
     }
 }
 
